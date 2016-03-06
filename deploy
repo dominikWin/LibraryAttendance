@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Included file patterns
-FILE_TYPES=( ".php" ".html" ".css" ".png" ".jpg" ".jpeg" ".js" )
+FILE_TYPES=( ".php" ".html" ".css" ".png" ".jpg" ".jpeg" ".js" ".xml" )
 
 REMOTE_WWW="/var/www"
 
