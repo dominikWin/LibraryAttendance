@@ -1,0 +1,147 @@
+#!/bin/bash
+
+# Included file patterns
+FILE_TYPES=( "*.html" "*.css" "*.png" "*.jpg" "*.jpeg" "*.js" )
+
+REMOTE_WWW="/var/www"
+
+TMP_FILE=".deployfiles"
+TMP_ARCHIVE="deploy_package.tar"
+
+USAGE="deploy [server] <-c>"
+CLEAN_TAG="-c"
+NOT_REACHABLE_MESSAGE="Server not reachable"
+SSH_NOT_REACHABLE_MESSAGE="SSH server not reachable"
+REMOTE=$1
+
+Cleanup () {
+    rm -f $TMP_FILE
+    rm -f $TMP_ARCHIVE
+}
+
+Cleanup
+
+Verify () {
+    echo "Verifying system programs"
+
+    # Verify ping exists
+    if ! type "ping" > /dev/null 2> /dev/null; then
+        echo "ERROR: ping can't be called" 1>&2
+        Cleanup
+       exit 1
+    fi
+
+    # Verify Server is Online
+    echo "Testing server ping"
+    ping -q -c 1 $REMOTE > /dev/null
+    if [ $? -ne 0 ]; then
+        echo $NOT_REACHABLE_MESSAGE
+        Cleanup
+        exit 1
+    fi
+
+    # Verify ssh exists
+    if ! type "ssh" > /dev/null 2> /dev/null; then
+        echo "ERROR: ssh can't be called" 1>&2
+        Cleanup
+        exit 1
+    fi
+
+    # Verify scp exists
+    if ! type "scp" > /dev/null 2> /dev/null; then
+        echo "ERROR: scp can't be called" 1>&2
+        Cleanup
+        exit 1
+    fi
+
+    # Verify remote has ssh server
+    echo "Tesing remote SSH server"
+    ssh -q $REMOTE "exit"
+    if [ $? -ne 0 ]; then
+        echo $SSH_NOT_REACHABLE_MESSAGE
+        Cleanup
+        exit 1
+    fi
+
+    # Verify find exists
+    if ! type "find" > /dev/null 2> /dev/null; then
+        echo "ERROR: find can't be called" 1>&2
+        Cleanup
+        exit 1
+    fi
+
+    # Verify tar exists
+    if ! type "tar" > /dev/null 2> /dev/null; then
+        echo "ERROR: tar can't be called" 1>&2
+        Cleanup
+        exit 1
+    fi
+
+    # Verify xargs exists
+    if ! type "xargs" > /dev/null 2> /dev/null; then
+        echo "ERROR: xargs can't be called" 1>&2
+        Cleanup
+        exit 1
+    fi
+}
+
+Remote_Clean () {
+    echo "Cleaning remote"
+    ssh $REMOTE "rm -rf $REMOTE_WWW/*"
+}
+
+##########################
+# START DOING OPERATIONS #
+##########################
+
+# Verify Arguments
+if [ $# -ne 1 ]; then
+    # Check if valid extra args
+    if [ $# -ne 2 ]; then
+        echo "Invalid number of arguments"
+        echo $USAGE
+        Cleanup
+        exit 1
+    else
+        # Check if clean operation
+        if [ $2 == $CLEAN_TAG ]; then
+            # Clean tag added
+            Verify
+            Remote_Clean
+            Cleanup
+            exit 0
+        fi
+    fi
+fi
+
+Verify
+
+echo "Locating files"
+
+# Clear tmp file
+> $TMP_FILE
+
+# Find valid files from pattern
+for i in "${FILE_TYPES[@]}"
+do
+    find . -name $i >> $TMP_FILE
+done
+
+echo "Creating package"
+
+# Create tar with code
+cat $TMP_FILE | xargs tar cf $TMP_ARCHIVE
+
+echo "Sending package to remote"
+
+# Copy archive to server
+scp $TMP_ARCHIVE $REMOTE:$REMOTE_WWW/$TMP_ARCHIVE
+
+echo "Unpacking remote package"
+
+# Go to www folder, create random file, delete all files except archive, unpack archive, delete archive
+ssh $REMOTE "cd $REMOTE_WWW && > anything.html && ls | grep -v $TMP_ARCHIVE | xargs rm && tar xf $REMOTE_WWW/$TMP_ARCHIVE && rm -f $REMOTE_WWW/$TMP_ARCHIVE && exit"
+
+Cleanup
+
+echo "Done!"
