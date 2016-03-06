@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Included file patterns
-FILE_TYPES=( "*.php" "*.html" "*.css" "*.png" "*.jpg" "*.jpeg" "*.js" )
+FILE_TYPES=( ".php" ".html" ".css" ".png" ".jpg" ".jpeg" ".js" )
 
 REMOTE_WWW="/var/www"
 
@@ -124,7 +124,7 @@ echo "Locating files"
 # Find valid files from pattern
 for i in "${FILE_TYPES[@]}"
 do
-    find . -name $i >> $TMP_FILE
+    find . -name "*$i" >> $TMP_FILE
 done
 
 echo "Creating package"
