@@ -1,6 +1,10 @@
+<?php
+$config = include("config.php");
+?>
+
 <html>
     <head>
-            <title></title>
+        <title><?php echo $config->name; ?></title>
     </head>
     <body>
     </body>
