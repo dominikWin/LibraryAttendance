@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Included file patterns
-FILE_TYPES=( ".php" ".html" ".css" ".png" ".jpg" ".jpeg" ".js" ".xml" )
+FILE_TYPES=( ".php" ".html" ".css" ".png" ".jpg" ".jpeg" ".js" ".xml" ".htaccess" )
 
 REMOTE_WWW="/var/www"
 
@@ -140,7 +140,7 @@ scp $TMP_ARCHIVE $REMOTE:$REMOTE_WWW/$TMP_ARCHIVE
 echo "Unpacking remote package"
 
 # Go to www folder, create random file, delete all files except archive, unpack archive, delete archive
-ssh $REMOTE "cd $REMOTE_WWW && > anything.html && ls | grep -v $TMP_ARCHIVE | xargs rm && tar xf $REMOTE_WWW/$TMP_ARCHIVE && rm -f $REMOTE_WWW/$TMP_ARCHIVE && exit"
+ssh $REMOTE "cd $REMOTE_WWW && > anything.html && ls | grep -v $TMP_ARCHIVE | xargs rm -r && tar xf $REMOTE_WWW/$TMP_ARCHIVE && rm -f $REMOTE_WWW/$TMP_ARCHIVE && exit"
 
 Cleanup
 
