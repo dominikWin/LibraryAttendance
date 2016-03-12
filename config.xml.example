@@ -1,8 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <config>
     <name>Library Attendance System</name>
-    <db1>
-        <uname>username1</uname>
-        <passwd>password1</passwd>
-    </db1>
 </config>
