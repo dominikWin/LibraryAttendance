@@ -1,3 +1,4 @@
 *~
 *.tar
 config.xml
+config/dbconfig.php
