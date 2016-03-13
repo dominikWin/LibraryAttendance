@@ -1,5 +1,5 @@
 <?php
 //DB 1 is for students, DB 2 for visits
-$db1 = array('name' => "localhost", 'uname' => "", 'passwd' = "", 'dbname' = "students");
-$db2 = array('name' => "localhost", 'uname' => "", 'passwd' = "", 'dbname' = "library");
+$db1 = array('name' => "localhost", 'uname' => "", 'passwd' => "", 'dbname' => "students");
+$db2 = array('name' => "localhost", 'uname' => "", 'passwd' => "", 'dbname' => "library");
 ?>
