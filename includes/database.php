@@ -37,15 +37,17 @@ function db2_connect() {
 }
 
 function db1_close() {
-
+	global $db1conn;
+	$db1conn = null;
 }
 
 function db2_close() {
-
+	global $db2conn;
+	$db2conn = null;
 }
 
 function isValidID($id) {
-
+	//TODO
 }
 
 function logVisit($id) {
@@ -59,5 +61,5 @@ function logVisit($id) {
 }
 
 function getPastUsers($number=25) {
-
+	//TODO
 }

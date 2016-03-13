@@ -6,3 +6,4 @@ include("includes/database.php");
 
 db2_connect();
 logVisit(htmlspecialchars($_POST['q']));
+db2_close();
