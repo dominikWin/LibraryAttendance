@@ -1,5 +1,5 @@
 <?php
-include("config/dbconfig.php");
+include($_SERVER['DOCUMENT_ROOT']."config/dbconfig.php");
 
 $db1conn = null;
 $db2conn = null;
