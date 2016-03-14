@@ -1,13 +1,33 @@
 <?php
 
-// print_r($_POST);
-include($_SERVER['DOCUMENT_ROOT']."/includes/database.php");
-// print_r($db2);
+/*
 
-if(!isset($_POST['q'])) {
-	die("No query value");
+Takes value "q" through POST.
+
+Returns a JSON object.
+
+status object in each return
+
+0 is success
+<20 is expected results
+<30 is server error_get_last
+<40 is user error
+
+if status is not 0 name is not included
+if status is not 0 "error" is returned with a description
+
+status: 0, success, includes "name"
+status: 10, id not found
+status: 30, error connecting to db
+status: 31, found but name wrong
+status: 40, id not included
+status: 41, id not a number
+
+*/
+
+if(isset(!$_POST['id']) {
+	
 }
-
-db2_connect();
-logVisit(htmlspecialchars($_POST['q']));
-db2_close();
+else {
+	include($_SERVER['DOCUMENT_ROOT']."/includes/database.php");
+}
