@@ -1,3 +1,7 @@
+function handleSuccess(result) {
+	console.log(result)
+}
+
 $(document).ready(function(){
 	// $("#q").keypress(validateNumber);
 
@@ -16,10 +20,11 @@ $(document).ready(function(){
 
 		//serialize adds 2 chars
 		if(data.length > 2) {
-			$.ajax({url: "insert.php", type: "post", data: data,
-			success: function(result) {
-				$("#result").html(result)
-			}})
+			$.ajax({url: "interface/logvisit.php",
+				type: "post",
+				data: data,
+				success: handleSuccess
+			})
 		}
 	})
 

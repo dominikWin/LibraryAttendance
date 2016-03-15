@@ -2,7 +2,8 @@
 
 /*
 
-Takes value "q" through POST.
+Takes value "q" added after <name>/.
+Example: site/interface/user.php/1
 
 Returns a JSON object.
 
@@ -16,7 +17,7 @@ status object in each return
 if status is not 0 name is not included
 if status is not 0 "error" is returned with a description
 
-status: 0, success, includes "name", added request to db
+status: 0, success, includes "name"
 status: 10, id not found
 status: 11, extra data given
 status: 30, error connecting to db
@@ -47,21 +48,11 @@ if(count($uri) > 3) {
 $id = intval($uri[2]);
 
 if($id === 0) {
-	reset($uri);
-	print_r($uri);
 	echo json_encode(array("status" => 41, "error" => "ID not a valid number"));
 	exit();
 }
 
 include($_SERVER['DOCUMENT_ROOT']."/includes/database.php");
-
-$status = db2_connect();
-
-if(is_null($status)) {
-	echo json_encode(array("status" => 30, "error" => "Error connecting to database"));
-	exit();
-}
-
 
 $status = db1_connect();
 
@@ -75,7 +66,5 @@ if($name == null) {
 	echo json_encode(array("status" => 10, "error" => "No student with given ID"));
 	exit();
 }
-
-logVisit((string) $id);
 
 echo json_encode(array("status" => 0, "name" => $name));
