@@ -4,6 +4,7 @@ include($_SERVER['DOCUMENT_ROOT']."config/dbconfig.php");
 $db1conn = null;
 $db2conn = null;
 
+//Returns exceptions, if success returns null
 function db1_connect() {
 	global $db1;
 	global $db1conn;
@@ -16,10 +17,12 @@ function db1_connect() {
 		$db1conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	catch (PDOException $e) {
-		die($e);
+		return $e;
 	}
+	return false;
 }
 
+//Returns exceptions, if success returns null
 function db2_connect() {
 	global $db2;
 	global $db2conn;
@@ -32,8 +35,9 @@ function db2_connect() {
 		$db2conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	catch (PDOException $e) {
-		die($e);
+		return $e;
 	}
+	return false;
 }
 
 function db1_close() {
@@ -46,8 +50,21 @@ function db2_close() {
 	$db2conn = null;
 }
 
+// Returns name if present, null if not
 function isValidID($id) {
-	//TODO
+	global $db1conn;
+	$stmt = $db1conn->prepare("SELECT `fname`, `lname` FROM `students` WHERE `id`=:id");
+	$stmt->bindParam(':id', $id);
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$students = $stmt->fetchAll();
+	if(count($students) == 0) {
+		return null;
+	}
+	return $students[0]['fname'].' '.$students[0]['lname'];
 }
 
 function logVisit($id) {
