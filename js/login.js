@@ -1,11 +1,16 @@
-
+function hideStatus() {
+	$('#s-status').collapse("hide")
+	$('#e-status').collapse("hide")
+}
 
 function handleSuccess(result) {
 	if(result.status == 0) {
-		$('#loginForm').animate({backgroundColor: "#d8fff0"}, 100).animate({backgroundColor: "#ffffff"}, 250)
+		$('#s-status').collapse("show")
+		setTimeout(hideStatus, 1000)
 	}
 	else {
-		$('#loginForm').animate({backgroundColor: "#ffb7aa"}, 100).animate({backgroundColor: "#ffffff"}, 250)
+		$('#e-status').collapse("show")
+		setTimeout(hideStatus, 1000)
 	}
 }
 

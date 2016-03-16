@@ -12,7 +12,6 @@ $config = include("includes/config.php");
 	        <script type="text/javascript" src="js/login.js"></script>
 	        <script type="text/javascript" src="js/numberfield.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="text/javascript" src="js/jquery.color-2.1.2.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -21,27 +20,45 @@ $config = include("includes/config.php");
 					<a class="navbar-brand" href="login.php"><?php echo $config->name; ?></a>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a>Item1</a></li>
+					<li><a>Administrator Login <span class="glyphicon glyphicon-cog"></span></a></li>
 				</ul>
 			</div>
 		</nav>
 		<div class="container">
-			<!-- <div class="col-md-6"></div> -->
 			<!-- Login Menu -->
 			<div class="col-md-4">
 				<div class="panel panel-default" style="margin-top: 100px;">
 					<div class="panel-heading">
-						Login
+						<b>Login</b>
 					</div>
 					<div class="panel-body" id="loginForm">
 						<form role="form" id="login" action="interface/logvisit.php" method="post">
-							<div class="from-group">
+							<div class="form-group">
 								<label>Student ID:</label>
-								<input class="form-control" autocomplete="off" id="q" name="q" type="text" maxlength="6" numonly>
+								<input class="form-control" autocomplete="off" id="q" name="q" type="text" maxlength="6" numonly></input>
 							</div>
 						</form>
 					</div>
 				</div>
+				<div class="collapse" id="s-status">
+					<div class="alert alert-success">
+						<span class="glyphicon glyphicon-ok"></span>  Welcome!
+					</div>
+				</div>
+				<div class="collapse" id="e-status">
+					<div class="alert alert-danger">
+						<span class="glyphicon glyphicon-remove"></span>  User not found!
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item list-group-item-heading"><b>Students</b></li>
+					<li class="list-group-item">Student 1</li>
+					<li class="list-group-item">Student 2</li>
+					<li class="list-group-item">Student 3</li>
+				</ul>
 			</div>
 		</div>
 	</body>
