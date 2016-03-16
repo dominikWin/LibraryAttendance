@@ -27,12 +27,18 @@ $config = include("includes/config.php");
 		<div class="container">
 			<!-- <div class="col-md-6"></div> -->
 			<!-- Login Menu -->
-			<div class="col-lg-6">
-				<div class="panel panel-default">
+			<div class="col-md-4">
+				<div class="panel panel-default" style="margin-top: 100px;">
 					<div class="panel-heading">
 						Login
 					</div>
 					<div class="panel-body">
+						<form role="form" id="login" action="interface/logvisit.php" method="post">
+							<div class="from-group">
+								<label>Student ID:</label>
+								<input class="form-control" autocomplete="off" id="q" name="q" type="text" maxlength="6" numonly>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
