@@ -12,6 +12,7 @@ $config = include("includes/config.php");
 	        <script type="text/javascript" src="js/login.js"></script>
 	        <script type="text/javascript" src="js/numberfield.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="js/jquery.color-2.1.2.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -32,7 +33,7 @@ $config = include("includes/config.php");
 					<div class="panel-heading">
 						Login
 					</div>
-					<div class="panel-body">
+					<div class="panel-body" id="loginForm">
 						<form role="form" id="login" action="interface/logvisit.php" method="post">
 							<div class="from-group">
 								<label>Student ID:</label>

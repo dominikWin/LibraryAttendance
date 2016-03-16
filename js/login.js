@@ -1,5 +1,12 @@
+
+
 function handleSuccess(result) {
-	console.log(result)
+	if(result.status == 0) {
+		$('#loginForm').animate({backgroundColor: "#d8fff0"}, 100).animate({backgroundColor: "#ffffff"}, 250)
+	}
+	else {
+		$('#loginForm').animate({backgroundColor: "#ffb7aa"}, 100).animate({backgroundColor: "#ffffff"}, 250)
+	}
 }
 
 $(document).ready(function(){
