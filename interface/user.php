@@ -28,7 +28,7 @@ status: 40, id not given
 
 header("Content-Type: application/json");
 
-// Default: [1] => interface [2] => insert.php
+// Default: [1] => interface [2] => user.php
 $uri = array_filter(explode('/', $_SERVER['REQUEST_URI']));
 
 // Make indexs incremental

@@ -77,6 +77,19 @@ function logVisit($id) {
 	$stmt->execute();
 }
 
+//Returns array of users
 function getPastUsers($number=25) {
-	//TODO
+	global $db2conn;
+	$stmt = $db2conn->prepare("SELECT `student_id` FROM visits ORDER BY id DESC LIMIT ".$number);
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$students = $stmt->fetchAll();
+	$names = array();
+	for($i = 0; $i < count($students); $i++) {
+		array_push($names, isValidID(intval($students[$i]['student_id'])));
+	}
+	return $names;
 }
