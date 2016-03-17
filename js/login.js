@@ -7,6 +7,7 @@ function handleSuccess(result) {
 	if(result.status == 0) {
 		$('#s-status').collapse("show")
 		setTimeout(hideStatus, 1000)
+		reloadUsers()
 	}
 	else {
 		$('#e-status').collapse("show")
@@ -41,3 +42,28 @@ $(document).ready(function(){
 	})
 
 })
+
+function replaceUsers(result) {
+	var text = "<li class=\"list-group-item list-group-item-heading\"><b>Students</b></li>"
+
+	for(var i = 0; i < result.names.length; i++) {
+		text += '\n<li class="list-group-item">' + result.names[i] + '</li>'
+	}
+	$("#student-list").html(text)
+	console.log("Updated student list")
+}
+
+function reloadUsers() {
+	$.ajax({
+		url: "interface/retrive.php/10",
+		type: "get",
+		success: replaceUsers
+	})
+}
+
+function updateUsers() {
+	reloadUsers()
+	setTimeout(updateUsers, 2500)
+}
+
+updateUsers()

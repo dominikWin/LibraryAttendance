@@ -53,7 +53,7 @@ $config = include("includes/config.php");
 			</div>
 			<div class="col-md-3"></div>
 			<div class="col-md-4">
-				<ul class="list-group">
+				<ul class="list-group" id="student-list">
 					<li class="list-group-item list-group-item-heading"><b>Students</b></li>
 					<li class="list-group-item">Student 1</li>
 					<li class="list-group-item">Student 2</li>
