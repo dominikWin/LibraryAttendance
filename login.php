@@ -24,6 +24,13 @@ $config = include("includes/config.php");
 				</ul>
 			</div>
 		</nav>
+		<div class="container-fluid">
+			<div class="collapse" id="db-status">
+				<div class="alert alert-danger" id="db-message">
+					<span class="glyphicon glyphicon-remove"></span>  Error connecting to server!
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<!-- Login Menu -->
 			<div class="col-md-4">
