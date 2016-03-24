@@ -29,13 +29,13 @@ $config = include("includes/config.php");
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						Header
+						<h4>Administrator Login</h4>
 					</div>
 					<div class="modal-body">
 						Body
 					</div>
 					<div class="modal-footer">
-						Footer
+						 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
