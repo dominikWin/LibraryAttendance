@@ -1,3 +1,15 @@
+//Default number of students to list
+var listed_students = 10
+
+function loadMore() {
+	if(listed_students < 100)
+		listed_students += 10
+	if(listed_students >= 100) {
+		$('#loadMoreContainer').html('')
+	}
+	reloadUsers()
+}
+
 function hideStatus() {
 	$('#s-status').collapse("hide")
 	$('#e-status').collapse("hide")
@@ -63,7 +75,7 @@ function replaceUsers(result) {
 
 function reloadUsers() {
 	$.ajax({
-		url: "interface/retrive.php/10",
+		url: "interface/retrive.php/" + listed_students,
 		type: "get",
 		success: replaceUsers,
 		error: handleError

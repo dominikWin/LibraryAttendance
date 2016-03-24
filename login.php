@@ -78,6 +78,9 @@ $config = include("includes/config.php");
 				<ul class="list-group" id="student-list">
 					<li class="list-group-item list-group-item-heading"><b>Students</b></li>
 				</ul>
+				<div id="loadMoreContainer">
+					<button class="btn btn-default" onclick="loadMore();" style="width:100%;">Load More</button>
+				</div>
 			</div>
 		</div>
 	</body>
