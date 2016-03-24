@@ -10,6 +10,7 @@ $config = include("includes/config.php");
 		<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	        <script type="text/javascript" src="js/login.js"></script>
+		<script type="text/javascript" src="js/adminLogin.js"></script>
 	        <script type="text/javascript" src="js/numberfield.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
@@ -31,14 +32,14 @@ $config = include("includes/config.php");
 						<h4>Administrator Login</h4>
 					</div>
 					<div class="modal-body">
-						<form id="adminLogin" action="" method="post">
+						<form id="adminLogin" action="interface/adminlogin.php" method="post">
 							<div class="form-group">
 								<label>Username:</label>
 								<input class="form-control" autocomplete="off" id="uname" type="text"></input>
 							</div>
 							<div class="form-group">
 								<label>Password:</label>
-								<input class="form-control" autocomplete="off" id="passwd" type="password"></input>
+								<input class="form-control" autocomplete="off" id="passwd" type="text"></input>
 							</div>
 							<button class="btn btn-primary form-control">Login</button>
 						</form>
