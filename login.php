@@ -31,7 +31,17 @@ $config = include("includes/config.php");
 						<h4>Administrator Login</h4>
 					</div>
 					<div class="modal-body">
-						Body
+						<form id="adminLogin" action="" method="post">
+							<div class="form-group">
+								<label>Username:</label>
+								<input class="form-control" autocomplete="off" id="uname" type="text"></input>
+							</div>
+							<div class="form-group">
+								<label>Password:</label>
+								<input class="form-control" autocomplete="off" id="passwd" type="password"></input>
+							</div>
+							<button class="btn btn-primary form-control">Login</button>
+						</form>
 					</div>
 					<div class="modal-footer">
 						 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
