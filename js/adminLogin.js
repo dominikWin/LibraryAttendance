@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 		$.ajax({url: "interface/adminlogin.php",
 			type: "post",
-			data: {uname: $("#uname").val().length, passwd: $("#passwd").val().length},
+			data: {uname: $("#uname").val(), passwd: $("#passwd").val()},
 			success: function(result) {
 				console.log(result)
 			},
