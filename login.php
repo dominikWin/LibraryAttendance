@@ -20,10 +20,26 @@ $config = include("includes/config.php");
 					<a class="navbar-brand" href="login.php"><?php echo $config->name; ?></a>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a>Administrator Login <span class="glyphicon glyphicon-cog"></span></a></li>
+					<!-- <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#adminLoginModal">Administrator Login <span class="glyphicon glyphicon-cog"></span></button></li> -->
+					<li style="cursor: pointer;"><a data-toggle="modal" data-target="#adminLoginModal">Administrator Login <span class="glyphicon glyphicon-cog"></span></a></li>
 				</ul>
 			</div>
 		</nav>
+		<div id="adminLoginModal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						Header
+					</div>
+					<div class="modal-body">
+						Body
+					</div>
+					<div class="modal-footer">
+						Footer
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<!-- Login Menu -->
 			<div class="col-md-4">
