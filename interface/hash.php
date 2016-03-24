@@ -10,7 +10,7 @@ $uri = array_values($uri);
 
 
 if(count($uri) <= 2) {
-	echo json_encode(array("status" => 40, "error" => "No number given"));
+	echo json_encode(array("status" => 40, "error" => "No password given"));
 	exit();
 }
 
@@ -27,4 +27,4 @@ $options = [
 
 $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
-echo json_encode(array("status" => 0, "hash" => $password));
+echo json_encode(array("status" => 0, "passwd" => $uri[2], "length" => strlen($uri[2]), "hash" => $password));
