@@ -70,7 +70,6 @@ function replaceUsers(result) {
 		text += '\n<li class="list-group-item">' + result.names[i] + '</li>'
 	}
 	$("#student-list").html(text)
-	console.log("Updated student list")
 }
 
 function reloadUsers() {
