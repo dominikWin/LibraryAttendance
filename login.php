@@ -83,5 +83,7 @@ $config = include("includes/config.php");
 				</div>
 			</div>
 		</div>
+		<!-- Scroll down buffer -->
+		<div style="height:100px;"></div>
 	</body>
 </html>
