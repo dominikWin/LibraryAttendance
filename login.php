@@ -40,6 +40,13 @@ $config = include("includes/config.php");
 				</div>
 			</div>
 		</div>
+		<div class="container-fluid">
+			<div class="collapse" id="db-status">
+				<div class="alert alert-danger" id="db-message">
+					<span class="glyphicon glyphicon-remove"></span>  Error connecting to server!
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<!-- Login Menu -->
 			<div class="col-md-4">
@@ -71,9 +78,6 @@ $config = include("includes/config.php");
 			<div class="col-md-4">
 				<ul class="list-group" id="student-list">
 					<li class="list-group-item list-group-item-heading"><b>Students</b></li>
-					<li class="list-group-item">Student 1</li>
-					<li class="list-group-item">Student 2</li>
-					<li class="list-group-item">Student 3</li>
 				</ul>
 			</div>
 		</div>
