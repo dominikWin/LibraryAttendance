@@ -39,7 +39,7 @@ $config = include("includes/config.php");
 							</div>
 							<div class="form-group">
 								<label>Password:</label>
-								<input class="form-control" autocomplete="off" id="passwd" type="text"></input>
+								<input class="form-control" autocomplete="off" id="passwd" type="password"></input>
 							</div>
 							<button class="btn btn-primary form-control">Login</button>
 						</form>
