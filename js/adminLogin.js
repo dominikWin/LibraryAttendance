@@ -8,13 +8,21 @@ function closeLoginFail() {
 
 function adminLoginSuccess(result) {
 	console.log(result)
-	if(result.status == 6 || result.status == 5) {
+	if(result.status != 0) {
 		//Failed
 		showLoginFail()
 		setTimeout(closeLoginFail, 2500)
 	}
 	else {
 		//Success
+		console.log("successful login")
+
+		if(sidExists())
+			removeSID()
+
+		setSID(result.key)
+
+		top.location = "admin/dashboard.php"
 	}
 }
 
