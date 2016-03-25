@@ -24,19 +24,19 @@
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav side-nav">
 			<li<?php if($select == 1) echo " class=\"active\"" ?>>
-				<a href="#"><span class="glyphicon glyphicon-home"></span>  Dashboard</a>
+				<a href="/admin/dashboard.php"><span class="glyphicon glyphicon-home"></span>  Dashboard</a>
 			</li>
 			<li<?php if($select == 2) echo " class=\"active\"" ?>>
-				<a href="#"><span class="glyphicon glyphicon-list"></span>  Visits</a>
+				<a href="/admin/visits.php"><span class="glyphicon glyphicon-list"></span>  Visits</a>
 			</li>
 			<li<?php if($select == 3) echo " class=\"active\"" ?>>
-				<a href="#"><span class="glyphicon glyphicon-export"></span>  Export</a>
+				<a href="/admin/export.php"><span class="glyphicon glyphicon-export"></span>  Export</a>
 			</li>
 			<li<?php if($select == 4) echo " class=\"active\"" ?>>
-				<a href="#"><span class="glyphicon glyphicon-edit"></span>  Administrators</a>
+				<a href="/admin/adminManage.php"><span class="glyphicon glyphicon-edit"></span>  Administrators</a>
 			</li>
 			<li<?php if($select == 5) echo " class=\"active\"" ?>>
-				<a href="#"><span class="glyphicon glyphicon-cog"></span>  Settings</a>
+				<a href="/admin/settings.php"><span class="glyphicon glyphicon-cog"></span>  Settings</a>
 			</li>
 		</ul>
 	</div>
