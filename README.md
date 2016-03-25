@@ -11,5 +11,5 @@ Before building the php files in `config/` need to be created from the examples.
 
 ## Dependencies
 
-This project uses Bootstrap and jQuery.
+This project uses Bootstrap, jQuery, and js-cookie.
 There are all in compressed formes in `js/` and `css/`.

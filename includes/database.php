@@ -98,7 +98,7 @@ function getPastUsers($number=25) {
 function isAdmin($uname, $passwd) {
 	global $db2conn;
 	$stmt = $db2conn->prepare("SELECT `id`, `passwd` FROM `admins` WHERE `uname` = :name");
-	$stmt->bindParam(':name', $uname);
+	$stmt->bindparam(':name', $uname);
 	$stmt->execute();
 
 	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -114,4 +114,25 @@ function isAdmin($uname, $passwd) {
 		return null;
 	}
 	return $admins[0]['id'];
+}
+
+function generateSessionID($id) {
+	return sha1(strval(microtime()).strval($id).strval(rand()));
+}
+
+//Returns array with "key", "timestamp", and "expireIn"
+function addSessionID($id) {
+	global $db2conn;
+	$key = generateSessionID($id);
+	$timestamp = time();
+	$expireIn = 3600;
+
+	$stmt = $db2conn->prepare("INSERT INTO `admin_sessions`(`user_id`, `hash`, `timestamp`, `expire`) VALUES (:id,:hash,:timestamp,:expire)");
+	$stmt->bindparam(':id', $id);
+	$stmt->bindparam(':hash', $key);
+	$stmt->bindparam(':timestamp', $timestamp);
+	$stmt->bindparam(':expire', $expireIn);
+	$stmt->execute();
+
+	return array('key' => $key, 'timestamp' => $timestamp, 'expireIn' => $expireIn);
 }

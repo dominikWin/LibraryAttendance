@@ -62,4 +62,6 @@ if(is_null($id)) {
 	exit();
 }
 
-echo json_encode(array("status" => 0, "id" => $id));
+$values = addSessionID($id);
+
+echo json_encode(array('status' => 0, 'key' => $values['key'], 'timestamp' => $values['timestamp'], 'expireIn' => $values['expireIn']));
