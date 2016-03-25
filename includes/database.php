@@ -70,9 +70,9 @@ function isValidID($id) {
 function logVisit($id) {
 	global $db2conn;
 	$stmt = $db2conn->prepare("INSERT INTO visits (student_id, timestamp)
-        VALUES (:id, :time)");
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':time', $time);
+                VALUES (:id, :time)");
+                $stmt->bindParam(':id', $id);
+                $stmt->bindParam(':time', $time);
 	$time = time();
 	$stmt->execute();
 }

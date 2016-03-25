@@ -22,7 +22,7 @@ if(count($uri) > 3) {
 $password = $uri[2];
 
 $options = [
-    'cost' => 12,
+        'cost' => 12,
 ];
 
 $password = password_hash($password, PASSWORD_BCRYPT, $options);

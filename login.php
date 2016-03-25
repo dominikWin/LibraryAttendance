@@ -5,7 +5,10 @@ $config = include("includes/config.php");
 <html>
 	<head>
 		<title><?php echo $config->name; ?></title>
-		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>	
+		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
+		<script type="text/javascript" src="/js/login.js"></script>
+		<script type="text/javascript" src="/js/adminLogin.js"></script>
+		<script type="text/javascript" src="/js/numberfield.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
