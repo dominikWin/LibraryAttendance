@@ -93,3 +93,25 @@ function getPastUsers($number=25) {
 	}
 	return $names;
 }
+
+//Returns id if exists, null if not
+function isAdmin($uname, $passwd) {
+	global $db2conn;
+	$stmt = $db2conn->prepare("SELECT `id`, `passwd` FROM `admins` WHERE `uname` = :name");
+	$stmt->bindParam(':name', $uname);
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$admins = $stmt->fetchAll();
+	if(count($admins) == 0)
+		return null;
+	if(count($admins) > 1)
+		error_log("More than one admin with valid uname ".$uname, 0);
+	if(!password_verify($passwd, $admins[0]['passwd'])) {
+		error_log("Rejected login request from ".$_SERVER['REMOTE_ADDR'], 0);
+		return null;
+	}
+	return $admins[0]['id'];
+}
