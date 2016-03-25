@@ -1,7 +1,6 @@
 <?php
 $config = include("includes/config.php");
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,17 +32,24 @@ $config = include("includes/config.php");
 						<h4>Administrator Login</h4>
 					</div>
 					<div class="modal-body">
-						<form id="adminLogin" action="interface/adminlogin.php" method="post">
-							<div class="form-group">
-								<label>Username:</label>
-								<input class="form-control" autocomplete="off" id="uname" type="text"></input>
+						<div style="margin-bottom:5px;">
+							<form id="adminLogin" action="interface/adminlogin.php" method="post">
+								<div class="form-group">
+									<label>Username:</label>
+									<input class="form-control" autocomplete="off" id="uname" type="text"></input>
+								</div>
+								<div class="form-group">
+									<label>Password:</label>
+									<input class="form-control" autocomplete="off" id="passwd" type="password"></input>
+								</div>
+								<button class="btn btn-primary form-control">Login</button>
+							</form>
+						</div>
+						<div class="collapse" id="admin-error">
+							<div class="alert alert-danger" id="db-message">
+								<span class="glyphicon glyphicon-remove"></span>  Invalid login
 							</div>
-							<div class="form-group">
-								<label>Password:</label>
-								<input class="form-control" autocomplete="off" id="passwd" type="password"></input>
-							</div>
-							<button class="btn btn-primary form-control">Login</button>
-						</form>
+						</div>
 					</div>
 					<div class="modal-footer">
 						 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
