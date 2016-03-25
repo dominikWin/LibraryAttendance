@@ -136,3 +136,32 @@ function addSessionID($id) {
 
 	return array('key' => $key, 'timestamp' => $timestamp, 'expireIn' => $expireIn);
 }
+
+//Returns name if valid, null if not
+function verifySession($hash) {
+	global $db2conn;
+
+	$stmt = $db2conn->prepare("SELECT `user_id` FROM `admin_sessions` WHERE `hash` = :hash");
+	$stmt->bindParam(':hash', $hash);
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$sessions = $stmt->fetchAll();
+
+	if(count($sessions) <= 0)
+		return null;
+	if(count($sessions) > 1)
+		error_log("Multiple valid values for hash ".$hash, 0);
+
+	$stmt = $db2conn->prepare("SELECT `uname` FROM `admins` WHERE `id` = :id");
+	$stmt->bindParam(':id', $sessions[0]['user_id']);
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$admins = $stmt->fetchAll();
+	return $admins[0]['uname'];
+}
