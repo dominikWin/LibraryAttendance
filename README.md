@@ -1,6 +1,6 @@
 # LibraryAttendance
 
-LibraryAttendance is a rewrite of [LibraryAttendanceProgram](https://github.com/DCHSProgrammingClub/LibraryAttendanceProgram)
+LibraryAttendance is a rewrite of [LibraryAttendanceProgram](https://github.com/DCHSProgrammingClub/LibraryAttendanceProgram), write might be a better word though.
 
 ## Build
 
