@@ -63,13 +63,19 @@ $(document).ready(function(){
 })
 
 function replaceUsers(result) {
-		$('#db-status').collapse('hide')
+	$('#db-status').collapse('hide')
 	var text = "<li class=\"list-group-item list-group-item-heading\"><b>Students</b></li>"
 
 	for(var i = 0; i < result.names.length; i++) {
 		text += '\n<li class="list-group-item">' + result.names[i] + '</li>'
 	}
 	$("#student-list").html(text)
+
+	//Remove load more button if out of students
+	if(result.names.length < listed_students)
+		$("#loadMoreContainer").html('')
+	else
+		$("#loadMoreContainer").html('<button class="btn btn-default" onclick="loadMore();" style="width:100%;">Load More</button>')
 }
 
 function reloadUsers() {
