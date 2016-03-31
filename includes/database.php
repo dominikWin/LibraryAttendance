@@ -165,3 +165,19 @@ function verifySession($hash) {
 	$admins = $stmt->fetchAll();
 	return $admins[0]['uname'];
 }
+
+function removeSession($sid) {
+	global $db2conn;
+
+	$stmt = $db2conn->prepare("DELETE FROM `admin_sessions` WHERE `hash` = :hash");
+	$stmt->bindParam(':hash', $sid);
+
+	$stmt->execute();
+}
+
+function revokeExpiredSessions() {
+	global $db2conn;
+
+	$stmt = $db2conn->prepare("DELETE FROM `admin_sessions` WHERE `timestamp` + `expire` < ".strval(time()));
+	$stmt->execute();
+}

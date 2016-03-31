@@ -7,7 +7,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="index.html"><?php echo $config->name; ?></a>
+		<a class="navbar-brand" href="/admin/dashboard.php"><?php echo $config->name; ?></a>
 	</div>
 	<!-- Top Menu Items -->
 	<ul class="nav navbar-right top-nav">
@@ -15,7 +15,7 @@
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $name; ?> <b class="caret"></b></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="#"><span class="glyphicon glyphicon-log-out"></span>  Log Out</a>
+					<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  Log Out</a>
 				</li>
 			</ul>
 		</li>
