@@ -18,24 +18,26 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 				<h1>Visits <small>Monitor Visits</small></h1>
 				<hr>
 				<div class="container">
-					<div class="col-md-5">
+					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								Show Visits
 							</div>
 							<div class="panel-body">
-								<form class="form-inline" method="get">
+								<form class="form" method="get">
 									<div class="form-group">
 										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1" placeholder="Quantity"></input>
+									</div>
+									<div class="form-group">
 										<button type="submit" class="btn btn-primary form-control">Query</button>
 									</div>
 								</form>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-12">
-						<div type="panel panel-default">
-							<div type="panel-body">
+					<div class="col-md-8">
+						<div class="panel panel-default">
+							<div class="panel-body">
 								<?php
 									if(isset($_GET['num']) && intval($_GET['num']) >= 1) {
 										$status = db1_connect();
