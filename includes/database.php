@@ -165,6 +165,26 @@ function verifySession($hash) {
 	$admins = $stmt->fetchAll();
 	return $admins[0]['uname'];
 }
+//Returns id if valid, null if not
+function getAdminID($hash) {
+	global $db2conn;
+
+	$stmt = $db2conn->prepare("SELECT `user_id` FROM `admin_sessions` WHERE `hash` = :hash");
+	$stmt->bindParam(':hash', $hash);
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$sessions = $stmt->fetchAll();
+
+	if(count($sessions) <= 0)
+		return null;
+	if(count($sessions) > 1)
+		error_log("Multiple valid values for hash ".$hash, 0);
+
+	return $sessions[0]['user_id'];
+}
 
 function removeSession($sid) {
 	global $db2conn;
@@ -229,4 +249,14 @@ function getAdmins() {
 		return null;
 	$admins = $stmt->fetchAll();
 	return $admins;
+}
+
+function removeAdmin($id) {
+	global $db2conn;
+	if($id == 1) {
+		die("Trying to remove root!");
+	}
+	$stmt = $db2conn->prepare("DELETE FROM `admins` WHERE `id` = :id");
+	$stmt->bindparam(':id', $id);
+	$stmt->execute();
 }
