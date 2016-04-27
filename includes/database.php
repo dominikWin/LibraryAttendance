@@ -218,3 +218,15 @@ function getVisitsTable($number=25) {
 	}
 	return $names;
 }
+
+function getAdmins() {
+	global $db2conn;
+	$stmt = $db2conn->prepare("SELECT `id`, `uname` FROM `admins` WHERE 1");
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$admins = $stmt->fetchAll();
+	return $admins;
+}
