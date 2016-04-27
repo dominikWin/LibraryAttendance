@@ -24,11 +24,9 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 								Show Visits
 							</div>
 							<div class="panel-body">
-								<form method="post">
+								<form class="form-inline" method="get">
 									<div class="form-group">
-										<label>Number:</label>
-										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1"></input>
-										<br />
+										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1" placeholder="Quantity"></input>
 										<button type="submit" class="btn btn-primary form-control">Query</button>
 									</div>
 								</form>
@@ -39,7 +37,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 						<div type="panel panel-default">
 							<div type="panel-body">
 								<?php
-									if(isset($_POST['num']) && intval($_POST['num']) >= 1) {
+									if(isset($_GET['num']) && intval($_GET['num']) >= 1) {
 										$status = db1_connect();
 										if(is_null($status)) {
 											exit();
@@ -48,7 +46,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 										if(is_null($status)) {
 											exit();
 										}
-										$visits = getVisitsTable(intval($_POST['num']));
+										$visits = getVisitsTable(intval($_GET['num']));
 										echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown</div>";
 										include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
 										for($i = 0; $i < count($visits); $i++) {
@@ -60,9 +58,6 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 											echo "</tr>";
 										}
 										echo "</tbody></table>";
-									}
-									else {
-										echo "<div style=\"height:250px;\"></div>";
 									}
 								?>
 							</div>
