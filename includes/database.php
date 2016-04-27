@@ -200,7 +200,12 @@ function getName($id) {
 
 function getVisitsTable($number=25) {
 	global $db2conn;
-	$stmt = $db2conn->prepare("SELECT `student_id`, `timestamp` FROM visits ORDER BY id DESC LIMIT ".$number);
+	if($number == -1) {
+		$stmt = $db2conn->prepare("SELECT `student_id`, `timestamp` FROM visits ORDER BY id DESC");
+	}
+	else {
+		$stmt = $db2conn->prepare("SELECT `student_id`, `timestamp` FROM visits ORDER BY id DESC LIMIT ".$number);
+	}
 	$stmt->execute();
 
 	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
