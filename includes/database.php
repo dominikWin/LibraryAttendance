@@ -181,3 +181,35 @@ function revokeExpiredSessions() {
 	$stmt = $db2conn->prepare("DELETE FROM `admin_sessions` WHERE `timestamp` + `expire` < ".strval(time()));
 	$stmt->execute();
 }
+
+function getName($id) {
+	global $db1conn;
+	$stmt = $db1conn->prepare("SELECT `fname`, `lname` FROM `students` WHERE `id`=:id");
+	$stmt->bindParam(':id', $id);
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$students = $stmt->fetchAll();
+	if(count($students) == 0) {
+		return null;
+	}
+	return array('fname' => $students[0]['fname'], 'lname' => $students[0]['lname']);
+}
+
+function getVisitsTable($number=25) {
+	global $db2conn;
+	$stmt = $db2conn->prepare("SELECT `student_id`, `timestamp` FROM visits ORDER BY id DESC LIMIT ".$number);
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$students = $stmt->fetchAll();
+	$names = array();
+	for($i = 0; $i < count($students); $i++) {
+		array_push($names, array('name' => getName(intval($students[$i]['student_id'])), 'id' => $students[$i]['student_id'], 'time' => intval($students[$i]['timestamp'])));
+	}
+	return $names;
+}
