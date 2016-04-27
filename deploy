@@ -24,22 +24,6 @@ Cleanup
 Verify () {
         echo "Verifying system programs"
 
-        # Verify ping exists
-        if ! type "ping" > /dev/null 2> /dev/null; then
-                echo "ERROR: ping can't be called" 1>&2
-                Cleanup
-           exit 1
-        fi
-
-        # Verify Server is Online
-        echo "Testing server ping"
-        ping -q -c 1 $REMOTE > /dev/null
-        if [ $? -ne 0 ]; then
-                echo $NOT_REACHABLE_MESSAGE
-                Cleanup
-                exit 1
-        fi
-
         # Verify ssh exists
         if ! type "ssh" > /dev/null 2> /dev/null; then
                 echo "ERROR: ssh can't be called" 1>&2
