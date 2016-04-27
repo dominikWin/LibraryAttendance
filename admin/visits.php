@@ -35,7 +35,6 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 				</div>
 				<?php
 					if(isset($_POST['num']) && intval($_POST['num']) >= 1) {
-						include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
 						$status = db1_connect();
 						if(is_null($status)) {
 							exit();
@@ -45,6 +44,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 							exit();
 						}
 						$visits = getVisitsTable(intval($_POST['num']));
+						include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
 						for($i = 0; $i < count($visits); $i++) {
 							echo "<tr>";
 							echo "<td>".$visits[$i]['name']['fname']."</td>";
@@ -54,6 +54,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 							echo "</tr>";
 						}
 						echo "</tbody></table>";
+						echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown</div>";
 					}
 					else {
 						echo "<div style=\"height:250px;\"></div>";
