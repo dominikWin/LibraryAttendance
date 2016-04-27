@@ -4,10 +4,10 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 if(isset($_GET['format'])) {
 	//Gen system
 	if($_GET['format'] == 'csv') {
-
+		include($_SERVER['DOCUMENT_ROOT']."/includes/export-formats/exportCSV.php");
 	}
 	elseif($_GET['format'] == 'xml') {
-
+		include($_SERVER['DOCUMENT_ROOT']."/includes/export-formats/exportXML.php");
 	}
 	elseif($_GET['format'] == 'json') {
 
