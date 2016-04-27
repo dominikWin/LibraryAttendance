@@ -17,50 +17,58 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 			<div id="page-wrapper">
 				<h1>Visits <small>Monitor Visits</small></h1>
 				<hr>
-				<div class="col-md-3">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Show Visits
+				<div class="container">
+					<div class="col-md-5">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								Show Visits
+							</div>
+							<div class="panel-body">
+								<form method="post">
+									<div class="form-group">
+										<label>Number:</label>
+										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1"></input>
+										<br />
+										<button type="submit" class="btn btn-primary form-control">Query</button>
+									</div>
+								</form>
+							</div>
 						</div>
-						<div class="panel-body">
-							<form method="post">
-								<div class="form-group">
-									<label>Number:</label>
-									<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1"></input>
-									<br />
-									<button type="submit" class="btn btn-primary form-control">Query</button>
-								</div>
-							</form>
+					</div>
+					<div class="col-md-12">
+						<div type="panel panel-default">
+							<div type="panel-body">
+								<?php
+									if(isset($_POST['num']) && intval($_POST['num']) >= 1) {
+										$status = db1_connect();
+										if(is_null($status)) {
+											exit();
+										}
+										$status = db2_connect();
+										if(is_null($status)) {
+											exit();
+										}
+										$visits = getVisitsTable(intval($_POST['num']));
+										echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown</div>";
+										include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
+										for($i = 0; $i < count($visits); $i++) {
+											echo "<tr>";
+											echo "<td>".$visits[$i]['name']['fname']."</td>";
+											echo "<td>".$visits[$i]['name']['lname']."</td>";
+											echo "<td>".$visits[$i]['id']."</td>";
+											echo "<td>".date("Y-m-d h:i:s A",$visits[$i]['time'])."</td>";
+											echo "</tr>";
+										}
+										echo "</tbody></table>";
+									}
+									else {
+										echo "<div style=\"height:250px;\"></div>";
+									}
+								?>
+							</div>
 						</div>
 					</div>
 				</div>
-				<?php
-					if(isset($_POST['num']) && intval($_POST['num']) >= 1) {
-						$status = db1_connect();
-						if(is_null($status)) {
-							exit();
-						}
-						$status = db2_connect();
-						if(is_null($status)) {
-							exit();
-						}
-						$visits = getVisitsTable(intval($_POST['num']));
-						include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
-						for($i = 0; $i < count($visits); $i++) {
-							echo "<tr>";
-							echo "<td>".$visits[$i]['name']['fname']."</td>";
-							echo "<td>".$visits[$i]['name']['lname']."</td>";
-							echo "<td>".$visits[$i]['id']."</td>";
-							echo "<td>".date("Y-m-d h:i:s A",$visits[$i]['time'])."</td>";
-							echo "</tr>";
-						}
-						echo "</tbody></table>";
-						echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown</div>";
-					}
-					else {
-						echo "<div style=\"height:250px;\"></div>";
-					}
-				?>
 			</div>
 		</div>
 	</body>
