@@ -15,7 +15,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 			<?php $select = 4; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
 				<h1>Administrators</h1>
-
+				<hr>
 			</div>
 		</div>
 	</body>
