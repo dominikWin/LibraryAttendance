@@ -10,7 +10,7 @@ if(isset($_GET['format'])) {
 		include($_SERVER['DOCUMENT_ROOT']."/includes/export-formats/exportXML.php");
 	}
 	elseif($_GET['format'] == 'json') {
-
+		include($_SERVER['DOCUMENT_ROOT']."/includes/export-formats/exportJSON.php");
 	}
 	else {
 		die("Unknown format");
