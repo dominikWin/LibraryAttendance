@@ -9,7 +9,6 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 		<title>Dashboard</title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
 		<link href="/css/sb-admin/sb-admin.css" rel="stylesheet">
-		<script type="text/javascript" src="/js/numberfield.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -39,28 +38,33 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 						<div class="panel panel-default">
 							<div class="panel-body">
 								<?php
-									if(isset($_GET['num']) && intval($_GET['num']) >= 1) {
-										$status = db1_connect();
-										if(is_null($status)) {
-											exit();
-										}
-										$status = db2_connect();
-										if(is_null($status)) {
-											exit();
-										}
-										$visits = getVisitsTable(intval($_GET['num']));
-										echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown</div>";
-										include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
-										for($i = 0; $i < count($visits); $i++) {
-											echo "<tr>";
-											echo "<td>".$visits[$i]['name']['fname']."</td>";
-											echo "<td>".$visits[$i]['name']['lname']."</td>";
-											echo "<td>".$visits[$i]['id']."</td>";
-											echo "<td>".date("Y-m-d h:i:s A",$visits[$i]['time'])."</td>";
-											echo "</tr>";
-										}
-										echo "</tbody></table>";
+									$num = 0;
+									if(isset($_GET['num']) && intval($_GET['num']) >= 1 && intval($_GET['num']) <= 1000) {
+										$num = intval($_GET['num']);
 									}
+									else {
+										$num = 10;
+									}
+									$status = db1_connect();
+									if(is_null($status)) {
+										exit();
+									}
+									$status = db2_connect();
+									if(is_null($status)) {
+										exit();
+									}
+									$visits = getVisitsTable($num);
+									echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown</div>";
+									include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
+									for($i = 0; $i < count($visits); $i++) {
+										echo "<tr>";
+										echo "<td>".$visits[$i]['name']['fname']."</td>";
+										echo "<td>".$visits[$i]['name']['lname']."</td>";
+										echo "<td>".$visits[$i]['id']."</td>";
+										echo "<td>".date("Y-m-d h:i:s A",$visits[$i]['time'])."</td>";
+										echo "</tr>";
+									}
+									echo "</tbody></table>";
 								?>
 							</div>
 						</div>
