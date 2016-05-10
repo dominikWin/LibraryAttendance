@@ -2,10 +2,7 @@
 
 function read_file($name) {
 	$full_path = $_SERVER['DOCUMENT_ROOT']."/config/".$name.".txt";
-	$file = fopen($full_path, 'r');
-	$text = fread($file, filesize($full_path));
-	fclose($file);
-	return rtrim($text);
+	return rtrim(file_get_contents($full_path));
 }
 
 //Any unchangable config defined here
