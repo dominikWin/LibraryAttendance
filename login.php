@@ -1,10 +1,10 @@
 <?php
-$config = include("includes/config.php");
+include("includes/config.php");
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo $config->name; ?></title>
+		<title><?php echo $CONF['name'] ?></title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
 		<script type="text/javascript" src="/js/login.js"></script>
 		<script type="text/javascript" src="/js/adminLogin.js"></script>
@@ -14,7 +14,7 @@ $config = include("includes/config.php");
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="login.php"><?php echo $config->name; ?></a>
+					<a class="navbar-brand" href="login.php"><?php echo $CONF['name']; ?></a>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
 					<li style="cursor: pointer;"><a data-toggle="modal" data-target="#adminLoginModal">Administrator Login <span class="glyphicon glyphicon-cog"></span></a></li>

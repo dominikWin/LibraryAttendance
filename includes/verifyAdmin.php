@@ -31,6 +31,6 @@ if($name === null) {
 	include($_SERVER['DOCUMENT_ROOT']."/includes/fail.php");
 }
 
-$config = include($_SERVER['DOCUMENT_ROOT']."/includes/config.php");
-//If execution gets here display dashboard
+include($_SERVER['DOCUMENT_ROOT']."/includes/config.php");
+
 ?>
