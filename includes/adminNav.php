@@ -15,7 +15,7 @@
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $name; ?> <b class="caret"></b></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  Log Out</a>
+					<a href="/admin/logout.php"><span class="glyphicon glyphicon-log-out"></span>  Log Out</a>
 				</li>
 			</ul>
 		</li>

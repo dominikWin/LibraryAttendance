@@ -278,3 +278,11 @@ function removeAdmin($id) {
 	$stmt->bindparam(':id', $id);
 	$stmt->execute();
 }
+
+function updateAdminHash($id, $hash) {
+	global $db2conn;
+	$stmt = $db2conn->prepare("UPDATE `admins` SET `passwd` = :hash WHERE `id` = :id");
+	$stmt->bindparam(':id', $id);
+	$stmt->bindparam(':hash', $hash);
+	$stmt->execute();
+}
