@@ -286,3 +286,11 @@ function updateAdminHash($id, $hash) {
 	$stmt->bindparam(':hash', $hash);
 	$stmt->execute();
 }
+
+function addAdmin($uname, $hash) {
+	global $db2conn;
+	$stmt = $db2conn->prepare("INSERT INTO `admins`(`uname`, `passwd`) VALUES (:uname,:passwd)");
+	$stmt->bindparam(':uname', $uname);
+	$stmt->bindparam(':passwd', $hash);
+	$stmt->execute();
+}
