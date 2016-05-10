@@ -5,8 +5,13 @@ $notRootError = null;
 if(isset($_POST['action'])) {
 	if($_POST['action'] == "add") {
 		//add admin
-		echo "<html><head><script language=\"javascript\">top.location = \"/admin/addAdmin.php\"</script></head></html>";
-		exit();
+		if(getAdminID($_COOKIE['sid']) != 1) {
+			$notRootError = true;
+		}
+		else {
+			echo "<html><head><script language=\"javascript\">top.location = \"/admin/addAdmin.php\"</script></head></html>";
+			exit();
+		}
 	}
 	else {
 		if(strlen($_POST['action']) > 3) {
