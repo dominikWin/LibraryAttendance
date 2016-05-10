@@ -25,6 +25,15 @@ if(isset($_POST['action'])) {
 					removeAdmin($num);
 				}
 			}
+			if($act == "cng") {
+				if(getAdminID($_COOKIE['sid']) != 1) {
+					$notRootError = true;
+				}
+				else {
+					echo "<html><head><script language=\"javascript\">top.location = \"/admin/passwdChange.php/?uid=".$num."\"</script></head></html>";
+					exit();
+				}
+			}
 		}
 	}
 }

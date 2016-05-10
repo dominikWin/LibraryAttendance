@@ -185,7 +185,25 @@ function getAdminID($hash) {
 
 	return $sessions[0]['user_id'];
 }
+function getAdminName($id) {
+	global $db2conn;
 
+	$stmt = $db2conn->prepare("SELECT `uname` FROM `admins` WHERE `id` = :id");
+	$stmt->bindParam(':id', $id);
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$sessions = $stmt->fetchAll();
+
+	if(count($sessions) <= 0)
+		return null;
+	if(count($sessions) > 1)
+		error_log("Multiple valid admins for id ".$id, 0);
+
+	return $sessions[0]['uname'];
+}
 function removeSession($sid) {
 	global $db2conn;
 
