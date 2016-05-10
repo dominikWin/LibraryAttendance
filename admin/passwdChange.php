@@ -70,7 +70,7 @@ function getChangeAdminName() {
 				<hr>
 				<?php
 				if($changed) {
-					echo "<div class=\"alert alert-success\">Password Changed</div>";
+					echo "<div class=\"alert alert-success\"><strong>Success!</strong> Password Changed</div>";
 					exit();
 				}
 				 ?>
