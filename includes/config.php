@@ -15,6 +15,13 @@ function add_conf($name) {
 	$CONF = array_merge($CONF, $new);
 }
 
+function set_conf_value($key, $value) {
+	global $CONF;
+	$full_path = $_SERVER['DOCUMENT_ROOT']."/config/".$key.".txt";
+	file_put_contents($full_path, $value);
+	$CONF[$key] = $value;
+}
+
 /*
 .txt extention is used to ensure deploy script sends config files.
 */
