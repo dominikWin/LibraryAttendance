@@ -236,14 +236,17 @@ function getName($id) {
 	return array('fname' => $students[0]['fname'], 'lname' => $students[0]['lname']);
 }
 
-function getVisitsTable($number=25) {
+function getVisitsTable($number=10, $id=0) {
 	global $db2conn;
-	if($number == -1) {
-		$stmt = $db2conn->prepare("SELECT `student_id`, `timestamp` FROM visits ORDER BY id DESC");
+	$args = "";
+	if($id > 0) {
+		$args = $args." WHERE `student_id` = ".strval($id);
 	}
-	else {
-		$stmt = $db2conn->prepare("SELECT `student_id`, `timestamp` FROM visits ORDER BY id DESC LIMIT ".$number);
+	$args = $args." ORDER BY id DESC";
+	if($number > -1) {
+		$args = $args." LIMIT ".strval($number);
 	}
+	$stmt = $db2conn->prepare("SELECT `student_id`, `timestamp` FROM visits".$args);
 	$stmt->execute();
 
 	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);

@@ -9,6 +9,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 		<title>Dashboard</title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
 		<link href="/css/sb-admin/sb-admin.css" rel="stylesheet">
+		<script type="text/javascript" src="/js/numberfield.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -28,6 +29,9 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1" placeholder="Max Quantity"></input>
 									</div>
 									<div class="form-group">
+										<input class="form-control" autocomplete="off" name="sid" id="sid" type="text" placeholder="Student ID" numonly></input>
+									</div>
+									<div class="form-group">
 										<button type="submit" class="btn btn-primary form-control">Query</button>
 									</div>
 								</form>
@@ -39,6 +43,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 							<div class="panel-body">
 								<?php
 									$num = 0;
+									$id = 0;
 									if(!isset($_GET['num'])) {
 										$num = 10;
 									}
@@ -48,6 +53,11 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 									else {
 										$num = 1000;
 									}
+
+									if(isset($_GET['sid']) && intval($_GET['sid']) > 0) {
+										$id = $_GET['sid'];
+									}
+
 									$status = db1_connect();
 									if(is_null($status)) {
 										exit();
@@ -56,7 +66,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 									if(is_null($status)) {
 										exit();
 									}
-									$visits = getVisitsTable($num);
+									$visits = getVisitsTable($num, $id);
 									echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown</div>";
 									include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
 									for($i = 0; $i < count($visits); $i++) {
