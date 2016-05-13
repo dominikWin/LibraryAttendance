@@ -25,7 +25,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 							<div class="panel-body">
 								<form class="form" method="get">
 									<div class="form-group">
-										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1" placeholder="Quantity"></input>
+										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1" placeholder="Max Quantity"></input>
 									</div>
 									<div class="form-group">
 										<button type="submit" class="btn btn-primary form-control">Query</button>
@@ -39,11 +39,14 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 							<div class="panel-body">
 								<?php
 									$num = 0;
-									if(isset($_GET['num']) && intval($_GET['num']) >= 1 && intval($_GET['num']) <= 1000) {
+									if(!isset($_GET['num'])) {
+										$num = 10;
+									}
+									elseif(intval($_GET['num']) >= 1 && intval($_GET['num']) <= 1000) {
 										$num = intval($_GET['num']);
 									}
 									else {
-										$num = 10;
+										$num = 1000;
 									}
 									$status = db1_connect();
 									if(is_null($status)) {
