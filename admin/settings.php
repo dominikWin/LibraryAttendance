@@ -18,7 +18,7 @@ if(isset($_POST['rename']) && strlen($_POST['rename']) > 0) {
 <html lang="en">
 
 	<head>
-		<title>Dashboard</title>
+		<title>Settings</title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
 		<link href="/css/sb-admin/sb-admin.css" rel="stylesheet">
 	</head>

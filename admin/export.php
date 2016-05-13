@@ -23,7 +23,7 @@ if(isset($_GET['format'])) {
 <html lang="en">
 
 	<head>
-		<title>Dashboard</title>
+		<title>Export</title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
 		<link href="/css/sb-admin/sb-admin.css" rel="stylesheet">
 		<script type="text/javascript" src="/js/numberfield.js"></script>

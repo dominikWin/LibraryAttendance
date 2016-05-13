@@ -6,7 +6,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 <html lang="en">
 
 	<head>
-		<title>Dashboard</title>
+		<title>VIsits</title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
 		<link href="/css/sb-admin/sb-admin.css" rel="stylesheet">
 		<script type="text/javascript" src="/js/numberfield.js"></script>
@@ -15,7 +15,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 		<div id="wrapper">
 			<?php $select = 2; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
-				<h1>Visits <small>Monitor Visits</small></h1>
+				<h1>Visits</h1>
 				<hr>
 				<div class="container">
 					<div class="col-md-4">

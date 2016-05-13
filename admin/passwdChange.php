@@ -58,7 +58,7 @@ function getChangeAdminName() {
 <html lang="en">
 
 	<head>
-		<title>Dashboard</title>
+		<title>Change Password</title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
 		<link href="/css/sb-admin/sb-admin.css" rel="stylesheet">
 	</head>
