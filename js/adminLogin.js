@@ -22,7 +22,7 @@ function adminLoginSuccess(result) {
 
 		setSID(result.key)
 
-		top.location = "admin/dashboard.php"
+		top.location = "admin/visits.php"
 	}
 }
 

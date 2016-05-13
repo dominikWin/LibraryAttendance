@@ -89,7 +89,7 @@ function drawTable() {
 	</head>
 	<body>
 		<div id="wrapper">
-			<?php $select = 4; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
+			<?php $select = 3; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
 				<h1>Administrators</h1>
 				<hr>

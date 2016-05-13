@@ -13,7 +13,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 	</head>
 	<body>
 		<div id="wrapper">
-			<?php $select = 2; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
+			<?php $select = 1; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
 				<h1>Visits</h1>
 				<hr>

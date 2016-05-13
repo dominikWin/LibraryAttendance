@@ -35,7 +35,7 @@ if(isset($_GET['format'])) {
 	</head>
 	<body>
 		<div id="wrapper">
-			<?php $select = 3; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
+			<?php $select = 2; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
 				<h1>Export</h1>
 				<hr>
