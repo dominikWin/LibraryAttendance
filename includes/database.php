@@ -297,3 +297,15 @@ function addAdmin($uname, $hash) {
 	$stmt->bindparam(':passwd', $hash);
 	$stmt->execute();
 }
+
+function countVisits() {
+	global $db2conn;
+	$stmt = $db2conn->prepare("SELECT COUNT(*) FROM `visits`");
+	$stmt->execute();
+
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	if($result != true)
+		return null;
+	$cnt = $stmt->fetchAll();
+	return intval($cnt[0]['COUNT(*)']);
+}

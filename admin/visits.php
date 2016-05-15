@@ -21,7 +21,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								Show Visits
+								Filter Settings
 							</div>
 							<div class="panel-body">
 								<form class="form" method="get">
@@ -67,7 +67,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 										exit();
 									}
 									$visits = getVisitsTable($num, $id);
-									echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown</div>";
+									echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown out of ".countVisits()."</div>";
 									include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
 									for($i = 0; $i < count($visits); $i++) {
 										echo "<tr>";
