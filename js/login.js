@@ -16,7 +16,7 @@ function hideStatus() {
 }
 
 function handleError(obj, text, error) {
-	$('#db-message').html(`<span class="glyphicon glyphicon-remove"></span>  Error connecting to server!`)
+	$('#db-message').html("<span class=\"glyphicon glyphicon-remove\"></span>  Error connecting to server!")
 	$('#db-status').collapse('show')
 }
 
