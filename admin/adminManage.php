@@ -98,7 +98,7 @@ function drawTable() {
 						<div class="span2 offset3">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									Administrator Managment
+									Administrator Management
 								</div>
 								<div class="panel-body">
 								<?php drawTable(); ?>

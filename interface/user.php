@@ -31,7 +31,7 @@ header("Content-Type: application/json");
 // Default: [1] => interface [2] => user.php
 $uri = array_filter(explode('/', $_SERVER['REQUEST_URI']));
 
-// Make indexs incremental
+// Make indexes incremental
 $uri = array_values($uri);
 
 

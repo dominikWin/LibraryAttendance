@@ -5,7 +5,7 @@ function read_file($name) {
 	return rtrim(file_get_contents($full_path));
 }
 
-//Any unchangable config defined here
+//Any unchangeable config defined here
 $CONF = array("cost" => 12);
 
 function add_conf($name) {
@@ -23,7 +23,7 @@ function set_conf_value($key, $value) {
 }
 
 /*
-.txt extention is used to ensure deploy script sends config files.
+.txt extension is used to ensure deploy script sends config files.
 */
 
 add_conf("name");

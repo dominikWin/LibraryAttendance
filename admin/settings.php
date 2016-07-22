@@ -28,7 +28,7 @@ if(isset($_POST['rename']) && strlen($_POST['rename']) > 0) {
 			<div id="page-wrapper">
 				<h1>Settings</h1>
 				<hr>
-				<div class="alert alert-info"><strong>Notice</strong> In a tesing enviorment this will not write to disk to due to disk write permissions.
+				<div class="alert alert-info"><strong>Notice</strong> In a testing environment this will not write to disk to due to disk write permissions.
 				This should work on any system where the config directory is writable by the webserver.</div>
 				<div class="col-md-5">
 					<div class="panel panel-default">

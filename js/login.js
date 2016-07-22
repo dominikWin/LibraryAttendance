@@ -37,7 +37,7 @@ $(document).ready(function(){
 	// $("#q").keypress(validateNumber);
 
 	$("#login").submit(function(event) {
-		//Form submited
+		//Form submitted
 
 		//Don't use default post
 		event.preventDefault()

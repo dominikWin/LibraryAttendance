@@ -6,7 +6,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 <html lang="en">
 
 	<head>
-		<title>VIsits</title>
+		<title>Visits</title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
 		<link href="/css/sb-admin/sb-admin.css" rel="stylesheet">
 		<script type="text/javascript" src="/js/numberfield.js"></script>
