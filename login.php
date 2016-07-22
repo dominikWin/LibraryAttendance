@@ -32,11 +32,11 @@ include("includes/config.php");
 							<form id="adminLogin" action="interface/adminlogin.php" method="post">
 								<div class="form-group">
 									<label>Username:</label>
-									<input class="form-control" autocomplete="off" id="uname" type="text"></input>
+									<input class="form-control" autocomplete="off" id="uname" type="text">
 								</div>
 								<div class="form-group">
 									<label>Password:</label>
-									<input class="form-control" autocomplete="off" id="passwd" type="password"></input>
+									<input class="form-control" autocomplete="off" id="passwd" type="password">
 								</div>
 								<button class="btn btn-primary form-control">Login</button>
 							</form>
@@ -71,7 +71,7 @@ include("includes/config.php");
 						<form role="form" id="login" action="interface/logvisit.php" method="post">
 							<div class="form-group">
 								<label>Student ID:</label>
-								<input class="form-control" autocomplete="off" id="q" name="q" type="text" maxlength="6" numonly></input>
+								<input class="form-control" autocomplete="off" id="q" name="q" type="text" maxlength="6" numonly>
 							</div>
 						</form>
 					</div>

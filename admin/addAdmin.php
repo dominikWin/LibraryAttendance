@@ -49,11 +49,11 @@ if(isset($_POST['uname']) && isset($_POST['passwd'])) {
 							<form role="form" id="cngPasswd" method="post">
 								<div class="form-group">
 									<label class="control-label">Name</label>
-									<input class="form-control" autocomplete="off" name="uname" type="text"></input>
+									<input class="form-control" autocomplete="off" name="uname" type="text">
 								</div>
 								<div class="form-group">
 									<label class="control-label">Password:</label>
-									<input class="form-control" autocomplete="off" name="passwd" type="password"></input>
+									<input class="form-control" autocomplete="off" name="passwd" type="password">
 								</div>
 								<div class="form-group">
 									<button type="submit" class="btn btn-success" text="Change Password"><span class="glyphicon glyphicon-plus"></span> Add</button>

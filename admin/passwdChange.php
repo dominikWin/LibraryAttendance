@@ -83,15 +83,15 @@ function getChangeAdminName() {
 							<form role="form" id="cngPasswd" method="post">
 								<div class="form-group<?php if($submit && !$passwdMatch) echo " has-warning"; ?>">
 									<label class="control-label">New Password:</label>
-									<input class="form-control" autocomplete="off" name="passwd1" type="password"></input>
+									<input class="form-control" autocomplete="off" name="passwd1" type="password">
 								</div>
 								<div class="form-group<?php if($submit && !$passwdMatch) echo " has-warning"; ?>">
 									<label class="control-label">Confirm Password:</label>
-									<input class="form-control" autocomplete="off" name="passwd2" type="password"></input>
+									<input class="form-control" autocomplete="off" name="passwd2" type="password">
 								</div>
 								<div class="form-group<?php if($submit && !$passwdConfgood) echo " has-error"; ?>">
 									<label class="control-label">Root Password (For confirmation):</label>
-									<input class="form-control" autocomplete="off" name="passwdRoot" type="password"></input>
+									<input class="form-control" autocomplete="off" name="passwdRoot" type="password">
 								</div>
 								<div class="form-group">
 									<button type="submit" class="btn btn-warning" text="Change Password"><span class="glyphicon glyphicon-ok"></span> Submit</button>

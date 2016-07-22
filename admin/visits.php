@@ -26,10 +26,10 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 							<div class="panel-body">
 								<form class="form" method="get">
 									<div class="form-group">
-										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1" placeholder="Max Quantity"></input>
+										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1" placeholder="Max Quantity">
 									</div>
 									<div class="form-group">
-										<input class="form-control" autocomplete="off" name="sid" id="sid" type="text" placeholder="Student ID" numonly></input>
+										<input class="form-control" autocomplete="off" name="sid" id="sid" type="text" placeholder="Student ID" numonly>
 									</div>
 									<div class="form-group">
 										<button type="submit" class="btn btn-primary form-control">Query</button>

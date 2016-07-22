@@ -39,7 +39,7 @@ if(isset($_POST['rename']) && strlen($_POST['rename']) > 0) {
 							<form method="post">
 								<div class="form-group">
 									<label>System Name:</label>
-									<input class="form-control" name="rename" type="text" placeholder="<?php echo $CONF['name']; ?>"></input>
+									<input class="form-control" name="rename" type="text" placeholder="<?php echo $CONF['name']; ?>">
 								</div>
 								<button class="btn btn-primary form-control" type="submit">Rename</button>
 							</form>
