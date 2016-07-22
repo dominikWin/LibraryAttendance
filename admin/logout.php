@@ -32,9 +32,9 @@ if(is_null($status)) {
 	exit();
 }
 
-removeSession($sid);
+remove_session($sid);
 
 //Does not need to be here but it works
-revokeExpiredSessions();
+revoke_expired_sessions();
 
 ?>

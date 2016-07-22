@@ -2,7 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 include($_SERVER['DOCUMENT_ROOT']."/includes/hashUtil.php");
 
-if(getAdminID($_COOKIE['sid']) != 1) {
+if(get_admin_id($_COOKIE['sid']) != 1) {
 	die("You need to be root to access this page!");
 }
 
@@ -12,7 +12,7 @@ if(isset($_POST['uname']) && isset($_POST['passwd'])) {
 	if(strlen($_POST['uname']) > 0 && strlen($_POST['passwd']) > 0) {
 		if(ctype_alnum($_POST['uname'])) {
 			$hash = gen_hash($_POST['passwd']);
-			addAdmin($_POST['uname'], $hash);
+			add_admin($_POST['uname'], $hash);
 			$added = true;
 		}
 	}

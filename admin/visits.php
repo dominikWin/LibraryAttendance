@@ -66,8 +66,8 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 									if(is_null($status)) {
 										exit();
 									}
-									$visits = getVisitsTable($num, $id);
-									echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown out of ".countVisits()."</div>";
+									$visits = get_visits_table($num, $id);
+									echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown out of ".count_visits()."</div>";
 									include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
 									for($i = 0; $i < count($visits); $i++) {
 										echo "<tr>";

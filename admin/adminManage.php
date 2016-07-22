@@ -5,7 +5,7 @@ $notRootError = null;
 if(isset($_POST['action'])) {
 	if($_POST['action'] == "add") {
 		//add admin
-		if(getAdminID($_COOKIE['sid']) != 1) {
+		if(get_admin_id($_COOKIE['sid']) != 1) {
 			$notRootError = true;
 		}
 		else {
@@ -25,15 +25,15 @@ if(isset($_POST['action'])) {
 					exit();
 				}
 
-				if(getAdminID($_COOKIE['sid']) != 1) {
+				if(get_admin_id($_COOKIE['sid']) != 1) {
 					$notRootError = true;
 				}
 				else {
-					removeAdmin($num);
+					remove_admin($num);
 				}
 			}
 			if($act == "cng") {
-				if(getAdminID($_COOKIE['sid']) != 1) {
+				if(get_admin_id($_COOKIE['sid']) != 1) {
 					$notRootError = true;
 				}
 				else {
@@ -52,7 +52,7 @@ function drawTable() {
 		echo "<div class=\"alert alert-warning\"><strong>Warning!</strong> You can't modify users unless you are root.</div>";
 	}
 
-	$admins = getAdmins();
+	$admins = get_admins();
 	// ID, Name, Change Passwd, Delete
 	echo "<div class=\"well\"><table class=\"table\"><thead><th>ID</th><th>Username</th><th></th></thead>";
 	echo "<tbody>";

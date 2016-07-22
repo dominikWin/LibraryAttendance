@@ -61,7 +61,7 @@ if(is_null($status)) {
 	exit();
 }
 
-$name = isValidID($id);
+$name = is_valid_id($id);
 if($name == null) {
 	echo json_encode(array("status" => 10, "error" => "No student with given ID"));
 	exit();

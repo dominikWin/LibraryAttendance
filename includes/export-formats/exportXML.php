@@ -8,7 +8,7 @@ if(is_null($status)) {
 	exit();
 }
 
-$visits = getVisitsTable(-1);
+$visits = get_visits_table(-1);
 
 echo "<visits>\n";
 for($i = 0; $i < count($visits); $i++) {

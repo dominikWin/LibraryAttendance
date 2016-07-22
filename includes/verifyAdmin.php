@@ -25,7 +25,7 @@ if(is_null($status)) {
 	exit();
 }
 
-$name = verifySession($_COOKIE['sid']);
+$name = verify_session($_COOKIE['sid']);
 
 if($name === null) {
 	include($_SERVER['DOCUMENT_ROOT']."/includes/fail.php");
