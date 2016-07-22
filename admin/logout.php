@@ -10,7 +10,7 @@
 		</script>
 	</head>
 	<body></body>
-</head>
+</html>
 
 <?php
 
