@@ -2,7 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 include($_SERVER['DOCUMENT_ROOT']."/includes/hashUtil.php");
 
-if(getAdminID($_COOKIE['sid']) != 1) {
+if(get_admin_id($_COOKIE['sid']) != 1) {
 	die("You need to be root to access this page!");
 }
 
@@ -34,18 +34,18 @@ if($passwd1good && $passwd2good && $_POST['passwd1'] == $_POST['passwd2'])
 
 if(isset($_POST['passwdRoot'])) {
 	$submit = true;
-	if(isAdmin("root", $_POST['passwdRoot']) == 1)
+	if(is_admin("root", $_POST['passwdRoot']) == 1)
 		$passwdConfgood = true;
 }
 
 if($submit && $passwdMatch && $passwdConfgood) {
 	//Change Password
-	updateAdminHash(intval($_GET['uid']), gen_hash($_POST['passwd1']));
+	update_admin_hash(intval($_GET['uid']), gen_hash($_POST['passwd1']));
 	$changed = true;
 }
 
-function getChangeAdminName() {
-	$name = getAdminName(intval($_GET['uid']));
+function get_change_admin_name() {
+	$name = get_admin_name(intval($_GET['uid']));
 	if($name == null) {
 		die("Invalid admin id");
 	}
@@ -66,7 +66,7 @@ function getChangeAdminName() {
 		<div id="wrapper">
 			<?php $select = 0; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
-				<h1>Change Password for <?php echo getChangeAdminName(); ?></h1>
+				<h1>Change Password for <?php echo get_change_admin_name(); ?></h1>
 				<hr>
 				<?php
 				if($changed) {
@@ -83,15 +83,15 @@ function getChangeAdminName() {
 							<form role="form" id="cngPasswd" method="post">
 								<div class="form-group<?php if($submit && !$passwdMatch) echo " has-warning"; ?>">
 									<label class="control-label">New Password:</label>
-									<input class="form-control" autocomplete="off" name="passwd1" type="password"></input>
+									<input class="form-control" autocomplete="off" name="passwd1" type="password">
 								</div>
 								<div class="form-group<?php if($submit && !$passwdMatch) echo " has-warning"; ?>">
 									<label class="control-label">Confirm Password:</label>
-									<input class="form-control" autocomplete="off" name="passwd2" type="password"></input>
+									<input class="form-control" autocomplete="off" name="passwd2" type="password">
 								</div>
 								<div class="form-group<?php if($submit && !$passwdConfgood) echo " has-error"; ?>">
 									<label class="control-label">Root Password (For confirmation):</label>
-									<input class="form-control" autocomplete="off" name="passwdRoot" type="password"></input>
+									<input class="form-control" autocomplete="off" name="passwdRoot" type="password">
 								</div>
 								<div class="form-group">
 									<button type="submit" class="btn btn-warning" text="Change Password"><span class="glyphicon glyphicon-ok"></span> Submit</button>

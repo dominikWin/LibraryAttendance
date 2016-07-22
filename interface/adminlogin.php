@@ -55,13 +55,13 @@ if(is_null($status)) {
 	exit();
 }
 
-$id = isAdmin($uname, $passwd);
+$id = is_admin($uname, $passwd);
 
 if(is_null($id)) {
 	echo json_encode(array("status" => 6, "error" => "no admin found"));
 	exit();
 }
 
-$values = addSessionID($id);
+$values = add_session_id($id);
 
 echo json_encode(array('status' => 0, 'key' => $values['key'], 'timestamp' => $values['timestamp'], 'expireIn' => $values['expireIn']));

@@ -4,7 +4,7 @@ create table students.students (id INT, fname VARCHAR(32), lname VARCHAR(32));
 
 create database library;
 
-create table library.visits (id INT AUTO_INCREMENT UNIQUE KEY, student_id INT PRIMARY KEY, timestamp INT UNSIGNED);
+create table library.visits (id INT AUTO_INCREMENT PRIMARY KEY, student_id INT, timestamp INT UNSIGNED);
 
 create table library.admins (id INT AUTO_INCREMENT PRIMARY KEY, uname VARCHAR(32), passwd CHAR(120));
 

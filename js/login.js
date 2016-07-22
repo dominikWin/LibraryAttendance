@@ -16,7 +16,7 @@ function hideStatus() {
 }
 
 function handleError(obj, text, error) {
-	$('#db-message').html(`<span class="glyphicon glyphicon-remove"></span>  Error connecting to server!`)
+	$('#db-message').html("<span class=\"glyphicon glyphicon-remove\"></span>  Error connecting to server!")
 	$('#db-status').collapse('show')
 }
 
@@ -37,7 +37,7 @@ $(document).ready(function(){
 	// $("#q").keypress(validateNumber);
 
 	$("#login").submit(function(event) {
-		//Form submited
+		//Form submitted
 
 		//Don't use default post
 		event.preventDefault()
@@ -80,7 +80,7 @@ function replaceUsers(result) {
 
 function reloadUsers() {
 	$.ajax({
-		url: "interface/retrive.php/" + listed_students,
+		url: "interface/fetchlast.php/" + listed_students,
 		type: "get",
 		success: replaceUsers,
 		error: handleError

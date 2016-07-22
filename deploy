@@ -39,7 +39,7 @@ Verify () {
         fi
 
         # Verify remote has ssh server
-        echo "Tesing remote SSH server"
+        echo "Testing remote SSH server"
         ssh -q $REMOTE "exit"
         if [ $? -ne 0 ]; then
                 echo $SSH_NOT_REACHABLE_MESSAGE

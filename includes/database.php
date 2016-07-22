@@ -8,10 +8,6 @@ $db2conn = null;
 function db1_connect() {
 	global $db1;
 	global $db1conn;
-	$servername = $db1['name'];
-	$username = $db1['uname'];
-	$password = $db1['passwd'];
-	$dbname = $db1['dbname'];
 	try {
 		$db1conn = new PDO("mysql:host=".$db1['name'].";dbname=".$db1['dbname'], $db1['uname'], $db1['passwd']);
 		$db1conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -26,10 +22,6 @@ function db1_connect() {
 function db2_connect() {
 	global $db2;
 	global $db2conn;
-	$servername = $db2['name'];
-	$username = $db2['uname'];
-	$password = $db2['passwd'];
-	$dbname = $db2['dbname'];
 	try {
 		$db2conn = new PDO("mysql:host=".$db2['name'].";dbname=".$db2['dbname'], $db2['uname'], $db2['passwd']);
 		$db2conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -51,7 +43,7 @@ function db2_close() {
 }
 
 // Returns name if present, null if not
-function isValidID($id) {
+function is_valid_id($id) {
 	global $db1conn;
 	$stmt = $db1conn->prepare("SELECT `fname`, `lname` FROM `students` WHERE `id`=:id");
 	$stmt->bindParam(':id', $id);
@@ -67,18 +59,18 @@ function isValidID($id) {
 	return $students[0]['fname'].' '.$students[0]['lname'];
 }
 
-function logVisit($id) {
+function log_visit($id) {
 	global $db2conn;
-	$stmt = $db2conn->prepare("INSERT INTO visits (student_id, timestamp)
+    $time = time();
+    $stmt = $db2conn->prepare("INSERT INTO visits (student_id, timestamp)
                 VALUES (:id, :time)");
                 $stmt->bindParam(':id', $id);
                 $stmt->bindParam(':time', $time);
-	$time = time();
 	$stmt->execute();
 }
 
 //Returns array of users
-function getPastUsers($number=25) {
+function get_past_users($number=25) {
 	global $db2conn;
 	$stmt = $db2conn->prepare("SELECT `student_id` FROM visits ORDER BY id DESC LIMIT ".$number);
 	$stmt->execute();
@@ -89,13 +81,13 @@ function getPastUsers($number=25) {
 	$students = $stmt->fetchAll();
 	$names = array();
 	for($i = 0; $i < count($students); $i++) {
-		array_push($names, isValidID(intval($students[$i]['student_id'])));
+		array_push($names, is_valid_id(intval($students[$i]['student_id'])));
 	}
 	return $names;
 }
 
 //Returns id if exists, null if not
-function isAdmin($uname, $passwd) {
+function is_admin($uname, $passwd) {
 	global $db2conn;
 	$stmt = $db2conn->prepare("SELECT `id`, `passwd` FROM `admins` WHERE `uname` = :name");
 	$stmt->bindparam(':name', $uname);
@@ -116,14 +108,14 @@ function isAdmin($uname, $passwd) {
 	return $admins[0]['id'];
 }
 
-function generateSessionID($id) {
+function gen_session_id($id) {
 	return sha1(strval(microtime()).strval($id).strval(rand()));
 }
 
 //Returns array with "key", "timestamp", and "expireIn"
-function addSessionID($id) {
+function add_session_id($id) {
 	global $db2conn;
-	$key = generateSessionID($id);
+	$key = gen_session_id($id);
 	$timestamp = time();
 	$expireIn = 3600;
 
@@ -138,7 +130,7 @@ function addSessionID($id) {
 }
 
 //Returns name if valid, null if not
-function verifySession($hash) {
+function verify_session($hash) {
 	global $db2conn;
 
 	$stmt = $db2conn->prepare("SELECT `user_id` FROM `admin_sessions` WHERE `hash` = :hash");
@@ -166,7 +158,7 @@ function verifySession($hash) {
 	return $admins[0]['uname'];
 }
 //Returns id if valid, null if not
-function getAdminID($hash) {
+function get_admin_id($hash) {
 	global $db2conn;
 
 	$stmt = $db2conn->prepare("SELECT `user_id` FROM `admin_sessions` WHERE `hash` = :hash");
@@ -185,7 +177,7 @@ function getAdminID($hash) {
 
 	return $sessions[0]['user_id'];
 }
-function getAdminName($id) {
+function get_admin_name($id) {
 	global $db2conn;
 
 	$stmt = $db2conn->prepare("SELECT `uname` FROM `admins` WHERE `id` = :id");
@@ -204,7 +196,7 @@ function getAdminName($id) {
 
 	return $sessions[0]['uname'];
 }
-function removeSession($sid) {
+function remove_session($sid) {
 	global $db2conn;
 
 	$stmt = $db2conn->prepare("DELETE FROM `admin_sessions` WHERE `hash` = :hash");
@@ -213,14 +205,14 @@ function removeSession($sid) {
 	$stmt->execute();
 }
 
-function revokeExpiredSessions() {
+function revoke_expired_sessions() {
 	global $db2conn;
 
 	$stmt = $db2conn->prepare("DELETE FROM `admin_sessions` WHERE `timestamp` + `expire` < ".strval(time()));
 	$stmt->execute();
 }
 
-function getName($id) {
+function get_name($id) {
 	global $db1conn;
 	$stmt = $db1conn->prepare("SELECT `fname`, `lname` FROM `students` WHERE `id`=:id");
 	$stmt->bindParam(':id', $id);
@@ -236,7 +228,7 @@ function getName($id) {
 	return array('fname' => $students[0]['fname'], 'lname' => $students[0]['lname']);
 }
 
-function getVisitsTable($number=10, $id=0) {
+function get_visits_table($number=10, $id=0) {
 	global $db2conn;
 	$args = "";
 	if($id > 0) {
@@ -255,12 +247,12 @@ function getVisitsTable($number=10, $id=0) {
 	$students = $stmt->fetchAll();
 	$names = array();
 	for($i = 0; $i < count($students); $i++) {
-		array_push($names, array('name' => getName(intval($students[$i]['student_id'])), 'id' => $students[$i]['student_id'], 'time' => intval($students[$i]['timestamp'])));
+		array_push($names, array('name' => get_name(intval($students[$i]['student_id'])), 'id' => $students[$i]['student_id'], 'time' => intval($students[$i]['timestamp'])));
 	}
 	return $names;
 }
 
-function getAdmins() {
+function get_admins() {
 	global $db2conn;
 	$stmt = $db2conn->prepare("SELECT `id`, `uname` FROM `admins` WHERE 1");
 	$stmt->execute();
@@ -272,7 +264,7 @@ function getAdmins() {
 	return $admins;
 }
 
-function removeAdmin($id) {
+function remove_admin($id) {
 	global $db2conn;
 	if($id == 1) {
 		die("Trying to remove root!");
@@ -282,7 +274,7 @@ function removeAdmin($id) {
 	$stmt->execute();
 }
 
-function updateAdminHash($id, $hash) {
+function update_admin_hash($id, $hash) {
 	global $db2conn;
 	$stmt = $db2conn->prepare("UPDATE `admins` SET `passwd` = :hash WHERE `id` = :id");
 	$stmt->bindparam(':id', $id);
@@ -290,7 +282,7 @@ function updateAdminHash($id, $hash) {
 	$stmt->execute();
 }
 
-function addAdmin($uname, $hash) {
+function add_admin($uname, $hash) {
 	global $db2conn;
 	$stmt = $db2conn->prepare("INSERT INTO `admins`(`uname`, `passwd`) VALUES (:uname,:passwd)");
 	$stmt->bindparam(':uname', $uname);
@@ -298,7 +290,7 @@ function addAdmin($uname, $hash) {
 	$stmt->execute();
 }
 
-function countVisits() {
+function count_visits() {
 	global $db2conn;
 	$stmt = $db2conn->prepare("SELECT COUNT(*) FROM `visits`");
 	$stmt->execute();

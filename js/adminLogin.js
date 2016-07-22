@@ -33,7 +33,7 @@ function emptyInputs() {
 
 $(document).ready(function() {
 	$("#adminLogin").submit(function(event) {
-		//Form submited
+		//Form submitted
 		//Don't use default post
 		event.preventDefault()
 

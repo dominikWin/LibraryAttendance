@@ -31,7 +31,7 @@ header("Content-Type: application/json");
 // Default: [1] => interface [2] => user.php
 $uri = array_filter(explode('/', $_SERVER['REQUEST_URI']));
 
-// Make indexs incremental
+// Make indexes incremental
 $uri = array_values($uri);
 
 
@@ -61,7 +61,7 @@ if(is_null($status)) {
 	exit();
 }
 
-$name = isValidID($id);
+$name = is_valid_id($id);
 if($name == null) {
 	echo json_encode(array("status" => 10, "error" => "No student with given ID"));
 	exit();

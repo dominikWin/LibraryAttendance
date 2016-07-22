@@ -2,7 +2,7 @@
 
 /*
 Can take value "num" through GET.
-Example: interface/retrive.php/10
+Example: interface/fetchlast.php/10
 
 Returns a JSON Object.
 
@@ -31,7 +31,7 @@ each user object has a "name" and timestamp (as "time")
 
 header("Content-Type: application/json");
 
-// Default: [1] => interface [2] => retrive.php
+// Default: [1] => interface [2] => fetchlast.php
 $uri = array_filter(explode('/', $_SERVER['REQUEST_URI']));
 
 // Make indexs incremental
@@ -76,6 +76,6 @@ if(is_null($status)) {
 	exit();
 }
 
-$names = getPastUsers($id);
+$names = get_past_users($id);
 
 echo json_encode(array("status" => 0, "names" => $names));

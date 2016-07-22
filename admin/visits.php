@@ -6,7 +6,7 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 <html lang="en">
 
 	<head>
-		<title>VIsits</title>
+		<title>Visits</title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
 		<link href="/css/sb-admin/sb-admin.css" rel="stylesheet">
 		<script type="text/javascript" src="/js/numberfield.js"></script>
@@ -26,10 +26,10 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 							<div class="panel-body">
 								<form class="form" method="get">
 									<div class="form-group">
-										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1" placeholder="Max Quantity"></input>
+										<input class="form-control" autocomplete="off" name="num" id="num" type="number" min="0" max="1000" step="1" placeholder="Max Quantity">
 									</div>
 									<div class="form-group">
-										<input class="form-control" autocomplete="off" name="sid" id="sid" type="text" placeholder="Student ID" numonly></input>
+										<input class="form-control" autocomplete="off" name="sid" id="sid" type="text" placeholder="Student ID" numonly>
 									</div>
 									<div class="form-group">
 										<button type="submit" class="btn btn-primary form-control">Query</button>
@@ -66,8 +66,8 @@ include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
 									if(is_null($status)) {
 										exit();
 									}
-									$visits = getVisitsTable($num, $id);
-									echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown out of ".countVisits()."</div>";
+									$visits = get_visits_table($num, $id);
+									echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown out of ".count_visits()."</div>";
 									include($_SERVER['DOCUMENT_ROOT']."/includes/tableHead.php");
 									for($i = 0; $i < count($visits); $i++) {
 										echo "<tr>";
