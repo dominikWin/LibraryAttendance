@@ -80,7 +80,7 @@ function replaceUsers(result) {
 
 function reloadUsers() {
 	$.ajax({
-		url: "interface/retrive.php/" + listed_students,
+		url: "interface/fetchlast.php/" + listed_students,
 		type: "get",
 		success: replaceUsers,
 		error: handleError
