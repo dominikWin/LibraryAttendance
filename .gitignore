@@ -3,3 +3,4 @@
 config.xml
 config/dbconfig.php
 *.txt
+.idea/
