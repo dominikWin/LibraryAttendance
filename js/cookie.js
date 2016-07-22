@@ -1,7 +1,6 @@
 function sidExists() {
-	if(Cookies.get('sed') === undefined)
-		return false
-	return true
+	return Cookies.get('sed') !== undefined;
+
 }
 
 function setSID(sid) {

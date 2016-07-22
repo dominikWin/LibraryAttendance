@@ -11,8 +11,5 @@ function validateNumber(event) {
 	|| event.keyCode === 13) {
 		return true
 	}
-	else if ( key < 48 || key > 57 ) {
-		return false
-	}
-	else return true
+	else return !(key < 48 || key > 57);
 };
