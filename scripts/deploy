@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# Included file patterns
-FILE_TYPES=( ".php" ".html" ".css" ".png" ".jpg" ".jpeg" ".js" ".htaccess" ".woff2" ".eot" ".svg" ".tff" ".woff" ".txt")
+# Prefix for included source files
+SRC_PREFIX=${0%/*}
+
+source $SRC_PREFIX/include_files
 
 REMOTE_WWW="/var/www"
 
