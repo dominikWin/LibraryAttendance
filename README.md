@@ -10,7 +10,7 @@ Requires apache2, mysql-server, php5, and php5-mysql (Debian packages).
 
 The apache site configuration needs a slash after the www folder. ("`/var/www/`")
 
-(Optional) If you run the deploy script at this point you will be able to see the login screen, but there will be an error message.
+(Optional) If you access the site at this point you will be able to see the login screen, but there will be an error message.
 
 ### MySQL
 
