@@ -26,8 +26,7 @@ The username and password must be added.
 
 (Optional) Setup the deploy script to use different server root directory, default is `/var/www/`.
 
-To send the files site use `deploy <ip>` and set the server.
-This will assume the current user is also a user on the server and has write permissions.
+To send the files site use `scripts/deploy user@ip` and set the server.
 If you do not have an ssh key it will prompt for a password multiple times.
 
 ## Dependencies
