@@ -49,7 +49,7 @@ function drawTable() {
 	global $notRootError;
 
 	if($notRootError) {
-		echo "<div class=\"alert alert-warning\"><strong>Warning!</strong> You can't modify users unless you are root.</div>";
+		echo "<div class=\"alert alert-warning\"><strong>Warning!</strong> You can't modify admins unless you are root.</div>";
 	}
 
 	$admins = get_admins();
