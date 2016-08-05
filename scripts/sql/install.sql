@@ -1,6 +1,6 @@
 create database students;
 
-create table students.students (id INT, fname VARCHAR(32), lname VARCHAR(32));
+create table students.students (id INT, fname VARCHAR(32), lname VARCHAR(32), img VARCHAR(128));
 
 create database library;
 
