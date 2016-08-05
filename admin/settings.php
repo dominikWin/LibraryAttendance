@@ -14,13 +14,13 @@ if(isset($_POST['rename']) && strlen($_POST['rename']) > 0) {
 }
 
 $imgresset = false;
-if(isset($_POST['imgresset']) && strlen($_POST['imgresset']) > 0) {
-	if(ctype_alnum(str_replace(' ', '', $_POST['imgresset']))) {
-		set_conf_value('res', $_POST['imgresset']);
+if(isset($_POST['imgw']) && isset($_POST['imgh'])) {
+	if(intval($_POST['imgw']) > 0 && intval($_POST['imgh']) > 0) {
+		set_conf_value('res', $_POST['imgw'] . 'x' . $_POST['imgh']);
 		$imgresset = true;
 	}
 	else {
-		die("Can't be non alnum value");
+		die("Invalid values");
 	}
 }
 ?>
@@ -66,8 +66,12 @@ if(isset($_POST['imgresset']) && strlen($_POST['imgresset']) > 0) {
 						<div class="panel-body">
 							<form method="post">
 								<div class="form-group">
-									<label>Resolution:</label>
-									<input class="form-control" name="imgresset" type="text" placeholder="<?php echo $CONF['res']; ?>">
+									<label>Width:</label>
+									<input class="form-control" name="imgw" type="number" min="1" placeholder="<?php echo split('x', $CONF['res'])[0]; ?>">
+								</div>
+								<div class="form-group">
+									<label>Height:</label>
+									<input class="form-control" name="imgh" type="number" min="1" placeholder="<?php echo split('x', $CONF['res'])[1]; ?>">
 								</div>
 								<button class="btn btn-primary form-control" type="submit">Update</button>
 							</form>
