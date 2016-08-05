@@ -12,6 +12,17 @@ if(isset($_POST['rename']) && strlen($_POST['rename']) > 0) {
 		die("Can't be non alnum value");
 	}
 }
+
+$imgresset = false;
+if(isset($_POST['imgresset']) && strlen($_POST['imgresset']) > 0) {
+	if(ctype_alnum(str_replace(' ', '', $_POST['imgresset']))) {
+		set_conf_value('res', $_POST['imgresset']);
+		$imgresset = true;
+	}
+	else {
+		die("Can't be non alnum value");
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +58,24 @@ if(isset($_POST['rename']) && strlen($_POST['rename']) > 0) {
 						</div>
 					</div>
 				</div>
+				<div class="col-md-5">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Image Scale Resolution
+						</div>
+						<div class="panel-body">
+							<form method="post">
+								<div class="form-group">
+									<label>Resolution:</label>
+									<input class="form-control" name="imgresset" type="text" placeholder="<?php echo $CONF['res']; ?>">
+								</div>
+								<button class="btn btn-primary form-control" type="submit">Update</button>
+							</form>
+							<?php if($imgresset) echo "<div class=\"alert alert-success\"><strong>Success!</strong> Set to ".$CONF['res']; ?>
+						</div>
+					</div>
+				</div>
+	
 			</div>
 		</div>
 	</body>
