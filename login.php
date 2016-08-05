@@ -1,11 +1,25 @@
 <?php
 include("includes/config.php");
+
+function img_res() {
+	global $CONF;
+	if(!isset($CONF['res'])) return array("width" => 48, "height" => 48);
+	if(count(split('x', $CONF['res'])) != 2) return array("width" => 48, "height" => 48);
+	if(0 == intval(split('x', $CONF['res'])[0]) * intval(split('x', $CONF['res'])[1])) return array("width" => 48, "height" => 48); //If either is 0 it will fail
+	return array("width" => intval(split('x', $CONF['res'])[0]), "height" => intval(split('x', $CONF['res'])[1]));
+}
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo $CONF['name'] ?></title>
+		<title><?php echo $CONF['name']; ?></title>
 		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
+
+		<script type="text/javascript">
+			var img_height = <?php echo img_res()['height']; ?>;
+			var img_width = <?php echo img_res()['width']; ?>;
+		</script>
+
 		<script type="text/javascript" src="/js/login.js"></script>
 		<script type="text/javascript" src="/js/adminLogin.js"></script>
 		<script type="text/javascript" src="/js/numberfield.js"></script>

@@ -69,7 +69,7 @@ function replaceUsers(result) {
 	for(var i = 0; i < result.users.length; i++) {
 		if(result.users[i].img.length == 0) continue
 
-		text += '\n<li class="list-group-item"><img height=\'48\' width=\'48\' src=\'' + result.users[i].img + '\'> ' + result.users[i].name + '</li>'
+		text += '\n<li class="list-group-item"><img height=\'' + img_height + '\' width=\'' + img_width + '\' src=\'' + result.users[i].img + '\'> ' + result.users[i].name + '</li>'
 	}
 	$("#student-list").html(text)
 

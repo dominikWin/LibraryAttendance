@@ -1,7 +1,7 @@
 <?php
 
 function read_file($name) {
-	$full_path = $_SERVER['DOCUMENT_ROOT']."/config/".$name.".txt";
+	$full_path = $_SERVER['DOCUMENT_ROOT']."config/".$name.".txt";
 	return rtrim(file_get_contents($full_path));
 }
 
@@ -27,5 +27,6 @@ function set_conf_value($key, $value) {
 */
 
 add_conf("name");
+add_conf("res");
 
 ?>
