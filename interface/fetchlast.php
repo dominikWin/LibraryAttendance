@@ -76,6 +76,6 @@ if(is_null($status)) {
 	exit();
 }
 
-$names = get_past_users($id);
+$users = get_past_users($id);
 
-echo json_encode(array("status" => 0, "names" => $names));
+echo json_encode(array("status" => 0, "users" => $users));

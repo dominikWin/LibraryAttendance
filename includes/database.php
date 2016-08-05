@@ -42,10 +42,10 @@ function db2_close() {
 	$db2conn = null;
 }
 
-// Returns name if present, null if not
+// Returns name and img if present, null if not
 function is_valid_id($id) {
 	global $db1conn;
-	$stmt = $db1conn->prepare("SELECT `fname`, `lname` FROM `students` WHERE `id`=:id");
+	$stmt = $db1conn->prepare("SELECT `fname`, `lname`, `img` FROM `students` WHERE `id`=:id");
 	$stmt->bindParam(':id', $id);
 	$stmt->execute();
 
@@ -56,7 +56,7 @@ function is_valid_id($id) {
 	if(count($students) == 0) {
 		return null;
 	}
-	return $students[0]['fname'].' '.$students[0]['lname'];
+	return array("name" => $students[0]['fname'].' '.$students[0]['lname'], "img" => $students[0]['img']);
 }
 
 function log_visit($id) {
