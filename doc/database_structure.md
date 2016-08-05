@@ -9,6 +9,7 @@ DB1 only needs one table for students.
 1.  `id` - int
 2.  `fname` - varchar(32)
 3.  `lname` - varchar(32)
+4.  `img` - varchar(128)
 
 ## DB2 Structure
 
