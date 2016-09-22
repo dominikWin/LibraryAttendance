@@ -97,7 +97,7 @@ function img_res() {
 				</div>
 				<div class="collapse" id="e-status">
 					<div class="alert alert-danger">
-						<span class="glyphicon glyphicon-remove"></span>  User not found!
+						<span class="glyphicon glyphicon-remove"></span>  Student not found!
 					</div>
 				</div>
 			</div>

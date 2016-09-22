@@ -1,6 +1,6 @@
 # Database Structure and Setup
 
-Under the current setup this project uses two databases: one for users (should be read only) and the second one is to store login data and administrators.
+Under the current setup this project uses two databases: one for students (should be read only) and the second one is to store login data and administrators.
 
 ## DB1 Structure
 

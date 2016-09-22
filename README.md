@@ -17,7 +17,7 @@ The apache site configuration needs a slash after the www folder. ("`/var/www/`"
 Run the `scripts/install.sql` on the mysql server.
 This will add a root acount with password "password", make sure to change it.
 
-(Optional) Fill in example users with `scripts/sample_students.sql`.
+(Optional) Fill in example students with `scripts/sample_students.sql`.
 
 ### Source Code
 

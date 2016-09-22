@@ -69,8 +69,8 @@ function log_visit($id) {
 	$stmt->execute();
 }
 
-//Returns array of users
-function get_past_users($number=25) {
+//Returns array of students
+function get_past_students($number=25) {
 	global $db2conn;
 	$stmt = $db2conn->prepare("SELECT `student_id` FROM visits ORDER BY id DESC LIMIT ".$number);
 	$stmt->execute();

@@ -7,7 +7,7 @@ function loadMore() {
 	if(listed_students >= 100) {
 		$('#loadMoreContainer').html('')
 	}
-	reloadUsers()
+	reloadStudents()
 }
 
 function hideStatus() {
@@ -25,7 +25,7 @@ function handleSuccess(result) {
 	if(result.status == 0) {
 		$('#s-status').collapse("show")
 		setTimeout(hideStatus, 1000)
-		reloadUsers()
+		reloadStudents()
 	}
 	else {
 		$('#e-status').collapse("show")
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
 })
 
-function replaceUsers(result) {
+function replaceStudents(result) {
 	$('#db-status').collapse('hide')
 	var text = "<li class=\"list-group-item list-group-item-heading\"><b>Students</b></li>"
 
@@ -74,24 +74,24 @@ function replaceUsers(result) {
 	$("#student-list").html(text)
 
 	//Remove load more button if out of students
-	if(result.users.length < listed_students)
+	if(result.students.length < listed_students)
 		$("#loadMoreContainer").html('')
 	else
 		$("#loadMoreContainer").html('<button class="btn btn-default" onclick="loadMore();" style="width:100%;">Load More</button>')
 }
 
-function reloadUsers() {
+function reloadStudents() {
 	$.ajax({
 		url: "interface/fetchlast.php/" + listed_students,
 		type: "get",
-		success: replaceUsers,
+		success: replaceStudents,
 		error: handleError
 	})
 }
 
-function updateUsers() {
-	reloadUsers()
-	setTimeout(updateUsers, 2500)
+function updateStudents() {
+	reloadStudents()
+	setTimeout(updateStudents, 2500)
 }
 
-updateUsers()
+updateStudents()

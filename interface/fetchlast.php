@@ -13,20 +13,20 @@ status object in each return
 <30 is server error_get_last
 <40 is user error
 
-if status is not 0 usera are not included
+if status is not 0 student data is not included
 if status is not 0 "error" is returned with a description
 
-status: 0, success, includes "users"
+status: 0, success, includes students
 status: 42, num is not in valid range
 status: 11, extra data given
 status: 30, error connecting to db
 status: 40, no number given
 status: 41, num is not a number
 
-users is an object that contains user objects
-if user is included so is the "count"
+students is an object that contains student objects
+if student is included so is the "count"
 
-each user object has a "name" and timestamp (as "time")
+each student object has a "name" and timestamp (as "time")
 */
 
 header("Content-Type: application/json");
@@ -76,6 +76,6 @@ if(is_null($status)) {
 	exit();
 }
 
-$users = get_past_users($id);
+$students = get_past_students($id);
 
-echo json_encode(array("status" => 0, "users" => $users));
+echo json_encode(array("status" => 0, "students" => $students));
