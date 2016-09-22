@@ -66,10 +66,12 @@ function replaceStudents(result) {
 	$('#db-status').collapse('hide')
 	var text = "<li class=\"list-group-item list-group-item-heading\"><b>Students</b></li>"
 
-	for(var i = 0; i < result.users.length; i++) {
-		if(result.users[i].img.length == 0) continue
+	for(var i = 0; i < result.students.length; i++) {
+		var img = "";
+		if(!(result.students[i].img == null || result.students[i].img.length == 0))
+			img = '<img height=\'' + img_height + '\' width=\'' + img_width + '\' src=\'' + result.students[i].img + '\'>'
 
-		text += '\n<li class="list-group-item"><img height=\'' + img_height + '\' width=\'' + img_width + '\' src=\'' + result.users[i].img + '\'> ' + result.users[i].name + '</li>'
+		text += '\n<li class="list-group-item">' + img + result.students[i].name + '</li>'
 	}
 	$("#student-list").html(text)
 
