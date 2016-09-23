@@ -1,29 +1,5 @@
 <?php
 
-/*
-
-Takes value "q" through POST.
-
-Returns a JSON object.
-
-status object in each return
-
-0 is success
-<20 is expected results
-<30 is server error_get_last
-<40 is user error
-
-if status is not 0 name is not included
-if status is not 0 "error" is returned with a description
-
-status: 0, success, includes "name", added request to db
-status: 10, id not found
-status: 30, error connecting to db
-status: 41, id not a number
-status: 40, id not given
-
-*/
-
 header("Content-Type: application/json");
 
 if(!isset($_POST['q'])) {
@@ -63,4 +39,4 @@ if($name == null) {
 
 log_visit((string) $id);
 
-echo json_encode(array("status" => 0, "name" => $name));
+echo json_encode(array("status" => 1, "name" => $name));
