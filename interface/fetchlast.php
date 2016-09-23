@@ -1,34 +1,5 @@
 <?php
 
-/*
-Can take value "num" through GET.
-Example: interface/fetchlast.php/10
-
-Returns a JSON Object.
-
-status object in each return
-
-0 is success
-<20 is expected results
-<30 is server error_get_last
-<40 is user error
-
-if status is not 0 student data is not included
-if status is not 0 "error" is returned with a description
-
-status: 0, success, includes students
-status: 42, num is not in valid range
-status: 11, extra data given
-status: 30, error connecting to db
-status: 40, no number given
-status: 41, num is not a number
-
-students is an object that contains student objects
-if student is included so is the "count"
-
-each student object has a "name" and timestamp (as "time")
-*/
-
 header("Content-Type: application/json");
 
 // Default: [1] => interface [2] => fetchlast.php
