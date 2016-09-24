@@ -1,31 +1,5 @@
 <?php
 
-/*
-
-Takes a "uname" and "passwd" through POST.
-
-Checks if admin exists and issues a session key
-
-Returns a JSON object.
-
-status object in each return
-
-0 is success
-<20 is expected results
-<30 is server error_get_last
-
-if status is not 0 "key", "timestamp" and "expireIn" are not included
-if status is not 0 "error" is returned with a description
-
-status: 0, success, includes "key", "timestamp" and "expireIn"
-status: 10, uname not found
-status: 11, passwd not found
-status: 5, invalid uname/passwd
-status: 6, admin not found
-status: 30, error connecting to db
-
-*/
-
 header("Content-Type: application/json");
 
 if(!isset($_POST['uname'])) {
