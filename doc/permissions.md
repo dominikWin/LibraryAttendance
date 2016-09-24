@@ -6,7 +6,7 @@ Any user with access to the site may attempt to sign in, only valid student ids 
 
 Administrators may attempt to log in to the serice to access the dashboard.
 
-If the authentication fails then a
+If the authentication fails then the server prints 'Rejected login request from `<client ip>`' to the server error log.
 
 ### Session Keys
 If the authentication is successfull a session key is generated.
