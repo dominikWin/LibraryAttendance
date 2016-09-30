@@ -4,6 +4,9 @@ FILES=admin config css fonts includes index.html interface js login.php
 RM=rm -f
 BUILD_DIR=build
 
+VERSION_TXT=_VERSION_
+VERSION := $(shell cat VERSION)
+
 SERVER_WWW=/var/www
 
 .PHONY: _build
@@ -11,6 +14,7 @@ _build: clean
 	mkdir $(BUILD_DIR)
 	mkdir $(BUILD_DIR)/$(HOSTED_NAME)
 	cp -r $(FILES) $(BUILD_DIR)/$(HOSTED_NAME)
+	find $(BUILD_DIR)/$(HOSTED_NAME) -type f -exec sed -i'' -e 's/$(VERSION_TXT)/$(VERSION)/g' {} \;
 
 .PHONY: clean
 clean:

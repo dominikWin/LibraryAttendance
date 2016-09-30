@@ -10,6 +10,7 @@ function img_res() {
 }
 ?>
 <!DOCTYPE html>
+<!-- Library Attendance _VERSION_ -->
 <html>
 	<head>
 		<title><?php echo $CONF['name']; ?></title>
