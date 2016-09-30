@@ -45,7 +45,7 @@ function db2_close() {
 // Returns name and img if present, null if not
 function is_valid_id($id) {
 	global $db1conn;
-	$stmt = $db1conn->prepare("SELECT `fname`, `lname`, `img` FROM `students` WHERE `id`=:id");
+	$stmt = $db1conn->prepare("SELECT `fname`, `lname` FROM `students` WHERE `sid`=:id");
 	$stmt->bindParam(':id', $id);
 	$stmt->execute();
 
@@ -56,7 +56,7 @@ function is_valid_id($id) {
 	if(count($students) == 0) {
 		return null;
 	}
-	return array("name" => $students[0]['fname'].' '.$students[0]['lname'], "img" => $students[0]['img']);
+	return array("name" => $students[0]['fname'].' '.$students[0]['lname'], "img" => "");
 }
 
 function log_visit($id) {
@@ -214,7 +214,7 @@ function revoke_expired_sessions() {
 
 function get_name($id) {
 	global $db1conn;
-	$stmt = $db1conn->prepare("SELECT `fname`, `lname` FROM `students` WHERE `id`=:id");
+	$stmt = $db1conn->prepare("SELECT `fname`, `lname` FROM `students` WHERE `sid`=:id");
 	$stmt->bindParam(':id', $id);
 	$stmt->execute();
 

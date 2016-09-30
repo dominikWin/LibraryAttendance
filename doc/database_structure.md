@@ -9,7 +9,7 @@ DB1 only needs one table for students.
 1.  `id` - int
 2.  `fname` - varchar(32)
 3.  `lname` - varchar(32)
-4.  `img` - varchar(128)
+4.  `img` - varchar(128) (Currently unused)
 
 ## DB2 Structure
 
@@ -17,7 +17,7 @@ DB2 needs three tables, one for visits, admins, and admin_sessions.
 
 visits:
 
-1.  `id` - int
+1.  `sid` - int
 2.  `student_id` - int
 3.  `timestamp` - int
 
