@@ -35,9 +35,6 @@ include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/config.php");
 			<li<?php if($select == 3) echo " class=\"active\"" ?>>
 				<a href="/libraryattendance/admin/adminManage.php"><span class="glyphicon glyphicon-edit"></span>  Administrators</a>
 			</li>
-			<li<?php if($select == 4) echo " class=\"active\"" ?>>
-				<a href="/libraryattendance/admin/settings.php"><span class="glyphicon glyphicon-cog"></span>  Settings</a>
-			</li>
 		</ul>
 	</div>
 </nav>
