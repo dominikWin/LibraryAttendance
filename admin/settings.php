@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."/includes/verifyAdmin.php");
+include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/verifyAdmin.php");
 
 $renamed = false;
 
@@ -30,12 +30,12 @@ if(isset($_POST['imgw']) && isset($_POST['imgh'])) {
 
 	<head>
 		<title>Settings</title>
-		<?php include($_SERVER['DOCUMENT_ROOT']."/includes/head.php"); ?>
-		<link href="/css/sb-admin/sb-admin.css" rel="stylesheet">
+		<?php include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/head.php"); ?>
+		<link href="/libraryattendance/css/sb-admin/sb-admin.css" rel="stylesheet">
 	</head>
 	<body>
 		<div id="wrapper">
-			<?php $select = 4; include($_SERVER['DOCUMENT_ROOT']."/includes/adminNav.php"); ?>
+			<?php $select = 4; include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
 				<h1>Settings</h1>
 				<hr>

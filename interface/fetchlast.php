@@ -4,6 +4,7 @@ header("Content-Type: application/json");
 
 // Default: [1] => interface [2] => fetchlast.php
 $uri = array_filter(explode('/', $_SERVER['REQUEST_URI']));
+array_shift($uri);
 
 // Make indexs incremental
 $uri = array_values($uri);
@@ -31,7 +32,7 @@ if($id <1 || $id > 100) {
 	exit();
 }
 
-include($_SERVER['DOCUMENT_ROOT']."/includes/database.php");
+include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/database.php");
 
 $status = db1_connect();
 

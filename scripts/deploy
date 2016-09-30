@@ -5,7 +5,7 @@ SRC_PREFIX=${0%/*}
 
 source $SRC_PREFIX/include_files
 
-REMOTE_WWW="/var/www"
+REMOTE_WWW="/var/www/libraryattendance"
 
 TMP_FILE=".deployfiles"
 TMP_ARCHIVE="deploy_package.tar"

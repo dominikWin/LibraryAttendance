@@ -46,7 +46,7 @@ $(document).ready(function() {
 			return
 		}
 
-		$.ajax({url: "interface/adminlogin.php",
+		$.ajax({url: "/libraryattendance/interface/adminlogin.php",
 			type: "post",
 			data: {uname: $("#uname").val(), passwd: $("#passwd").val()},
 			success: adminLoginSuccess

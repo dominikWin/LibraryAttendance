@@ -1,12 +1,12 @@
 <html>
 	<head>
-		<script type="text/javascript" src="/js/js.cookie-2.1.0.min.js"></script>
-		<script type="text/javascript" src="/js/cookie.js"></script>
+		<script type="text/javascript" src="/libraryattendance/js/js.cookie-2.1.0.min.js"></script>
+		<script type="text/javascript" src="/libraryattendance/js/cookie.js"></script>
 		<script>
 			console.log("Logging out")
 			if(sidExists())
 					removeSID()
-			top.location = "/index.html"
+			top.location = "/libraryattendance/index.html"
 		</script>
 	</head>
 	<body></body>
@@ -24,7 +24,7 @@ if(strlen($sid) != 40 || !ctype_alnum($sid)) {
 	exit();
 }
 
-include($_SERVER['DOCUMENT_ROOT']."/includes/database.php");
+include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/database.php");
 
 $status = db2_connect();
 

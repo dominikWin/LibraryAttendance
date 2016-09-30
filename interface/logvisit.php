@@ -14,7 +14,7 @@ if($id === 0) {
 	exit();
 }
 
-include($_SERVER['DOCUMENT_ROOT']."/includes/database.php");
+include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/database.php");
 
 $status = db2_connect();
 
@@ -39,4 +39,4 @@ if($name == null) {
 
 log_visit((string) $id);
 
-echo json_encode(array("status" => 1, "name" => $name));
+echo json_encode(array("status" => 0, "name" => $name));
