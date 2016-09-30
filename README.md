@@ -4,6 +4,8 @@ LibraryAttendance is a rewrite of [LibraryAttendanceProgram](https://github.com/
 
 ## Install
 
+This is the subdir version of the program, it should be located in `libraryattendance/` inside the hosted directory.
+
 ### Apache
 
 Requires apache2, mysql-server, php5, and php5-mysql (Debian packages).
