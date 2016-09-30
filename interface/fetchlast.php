@@ -32,7 +32,7 @@ if($id <1 || $id > 100) {
 	exit();
 }
 
-include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/database.php");
+include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/database.php");
 
 $status = db1_connect();
 

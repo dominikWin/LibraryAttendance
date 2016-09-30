@@ -20,7 +20,7 @@ if((!ctype_alnum($uname)) || (!ctype_alnum($passwd))) {
 	exit();
 }
 
-include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/database.php");
+include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/database.php");
 
 $status = db2_connect();
 

@@ -24,7 +24,7 @@ if(strlen($sid) != 40 || !ctype_alnum($sid)) {
 	exit();
 }
 
-include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/database.php");
+include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/database.php");
 
 $status = db2_connect();
 

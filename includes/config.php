@@ -1,7 +1,7 @@
 <?php
 
 function read_file($name) {
-	$full_path = $_SERVER['DOCUMENT_ROOT']."libraryattendance/config/".$name.".txt";
+	$full_path = $_SERVER['DOCUMENT_ROOT']."/libraryattendance/config/".$name.".txt";
 	return rtrim(file_get_contents($full_path));
 }
 
@@ -17,7 +17,7 @@ function add_conf($name) {
 
 function set_conf_value($key, $value) {
 	global $CONF;
-	$full_path = $_SERVER['DOCUMENT_ROOT']."libraryattendance/config/".$key.".txt";
+	$full_path = $_SERVER['DOCUMENT_ROOT']."/libraryattendance/config/".$key.".txt";
 	file_put_contents($full_path, $value);
 	$CONF[$key] = $value;
 }

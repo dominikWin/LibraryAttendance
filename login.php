@@ -13,7 +13,7 @@ function img_res() {
 <html>
 	<head>
 		<title><?php echo $CONF['name']; ?></title>
-		<?php include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/head.php"); ?>
+		<?php include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/head.php"); ?>
 
 		<script type="text/javascript">
 			var img_height = <?php echo img_res()['height']; ?>;
@@ -43,7 +43,7 @@ function img_res() {
 					</div>
 					<div class="modal-body">
 						<div style="margin-bottom:5px;">
-							<form id="adminLogin" action="libraryattendance/interface/adminlogin.php" method="post">
+							<form id="adminLogin" action="/libraryattendance/interface/adminlogin.php" method="post">
 								<div class="form-group">
 									<label>Username:</label>
 									<input class="form-control" autocomplete="off" id="uname" type="text">

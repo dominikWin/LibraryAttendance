@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/verifyAdmin.php");
+include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/verifyAdmin.php");
 ?>
 
 <!DOCTYPE html>
@@ -7,13 +7,13 @@ include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/verifyAdmin.php");
 
 	<head>
 		<title>Visits</title>
-		<?php include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/head.php"); ?>
+		<?php include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/head.php"); ?>
 		<link href="/libraryattendance/css/sb-admin/sb-admin.css" rel="stylesheet">
 		<script type="text/javascript" src="/libraryattendance/js/numberfield.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
-			<?php $select = 1; include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/adminNav.php"); ?>
+			<?php $select = 1; include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
 				<h1>Visits</h1>
 				<hr>
@@ -68,7 +68,7 @@ include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/verifyAdmin.php");
 									}
 									$visits = get_visits_table($num, $id);
 									echo "<div class=\"alert alert-info\"><strong>".count($visits)."</strong> visit". (count($visits) > 1 ? "s" : "") ." shown out of ".count_visits()."</div>";
-									include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/tableHead.php");
+									include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/tableHead.php");
 									for($i = 0; $i < count($visits); $i++) {
 										echo "<tr>";
 										echo "<td>".$visits[$i]['name']['fname']."</td>";

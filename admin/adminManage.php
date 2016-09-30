@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/verifyAdmin.php");
+include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/verifyAdmin.php");
 $notRootError = null;
 
 if(isset($_POST['action'])) {
@@ -84,12 +84,12 @@ function drawTable() {
 
 	<head>
 		<title>Administrators</title>
-		<?php include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/head.php"); ?>
+		<?php include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/head.php"); ?>
 		<link href="/libraryattendance/css/sb-admin/sb-admin.css" rel="stylesheet">
 	</head>
 	<body>
 		<div id="wrapper">
-			<?php $select = 3; include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/adminNav.php"); ?>
+			<?php $select = 3; include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
 				<h1>Administrators</h1>
 				<hr>

@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/config.php");
+include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/config.php");
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<!-- Brand and toggle get grouped for better mobile display -->

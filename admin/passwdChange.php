@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/verifyAdmin.php");
-include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/hashUtil.php");
+include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/verifyAdmin.php");
+include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/hashUtil.php");
 
 if(get_admin_id($_COOKIE['sid']) != 1) {
 	die("You need to be root to access this page!");
@@ -59,12 +59,12 @@ function get_change_admin_name() {
 
 	<head>
 		<title>Change Password</title>
-		<?php include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/head.php"); ?>
+		<?php include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/head.php"); ?>
 		<link href="/libraryattendance/css/sb-admin/sb-admin.css" rel="stylesheet">
 	</head>
 	<body>
 		<div id="wrapper">
-			<?php $select = 0; include($_SERVER['DOCUMENT_ROOT']."libraryattendance/includes/adminNav.php"); ?>
+			<?php $select = 0; include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
 				<h1>Change Password for <?php echo get_change_admin_name(); ?></h1>
 				<hr>
