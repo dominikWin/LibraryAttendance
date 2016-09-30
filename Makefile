@@ -35,4 +35,4 @@ out: _out_tgz _out_txz _out_zip
 
 deploy: clean _out_tgz
 	scp $(BUILD_DIR)/$(HOSTED_NAME).tar.gz $(SERVER):$(SERVER_WWW)/
-	ssh $(SERVER) "cd /$(SERVER_WWW) && rm -rf $(HOSTED_NAME) && tar xf $(HOSTED_NAME).tar.gz && rm -f $(HOSTED_NAME).tar.gz; exit"
+	ssh $(SERVER) "cd $(SERVER_WWW) && rm -rf $(HOSTED_NAME) && tar xf $(HOSTED_NAME).tar.gz && rm -f $(HOSTED_NAME).tar.gz; exit"
