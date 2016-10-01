@@ -1,0 +1,12 @@
+{
+	"name": "Library Attendance System",
+	"res": "48x48",
+	"db1host": "localhost",
+	"db1uname": "dbuser",
+	"db1passwd": "dbpass",
+	"db1name": "students",
+	"db2host": "localhost",
+	"db2uname": "dbuser",
+	"db2passwd": "dbpass",
+	"db2name": "library"
+}
