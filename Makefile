@@ -15,6 +15,7 @@ _build: clean
 	mkdir $(BUILD_DIR)/$(HOSTED_NAME)
 	cp -r $(FILES) $(BUILD_DIR)/$(HOSTED_NAME)
 	find $(BUILD_DIR)/$(HOSTED_NAME) -type f -exec sed -i'' -e 's/$(VERSION_TXT)/$(VERSION)/g' {} \;
+	find $(BUILD_DIR)/$(HOSTED_NAME) -type f -exec sed -i'' -e 's/libraryattendance/$(HOSTED_NAME)/g' {} \;
 
 .PHONY: clean
 clean:
