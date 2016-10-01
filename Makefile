@@ -9,6 +9,8 @@ VERSION := $(shell cat VERSION)
 
 SERVER_WWW=/var/www
 
+all: out
+
 .PHONY: _build
 _build: clean
 	mkdir $(BUILD_DIR)
