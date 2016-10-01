@@ -4,13 +4,12 @@ LibraryAttendance is a rewrite of [LibraryAttendanceProgram](https://github.com/
 
 ## Install
 
-This is the subdir version of the program, it should be located in `libraryattendance/` inside the hosted directory.
+The name of the program by default is libraryattendance and is hosted from the `libraryattendance/` inside the hosted directory.
+You can change this name in the Makefile; if you do all parts of the program will use the new name.
 
-### Apache
+### Packages
 
 Requires apache2, mysql-server, php5, and php5-mysql (Debian packages).
-
-(Optional) If you access the site at this point you will be able to see the login screen, but there will be an error message.
 
 ### MySQL
 
@@ -19,27 +18,38 @@ This will add a root acount with password "password", make sure to change it.
 
 (Optional) Fill in example students with `scripts/sample_students.sql`.
 
+### Configuration
+
+Setup the file `/etc/libraryattendance.json`.
+An example is provided at `docs/libraryattendance.json`
+
 ### Source Code
 
-Setup config file `config/dbconf.php` from the example, this relies on having a database user setup.
-The username and password must be added.
+Get a released archive (Github release tab) and decmpress it in the hosted directory.
+Any production installs should come from a released archive.
 
-There are two ways of setting up code in the hosted directory.
-The deploy script requires a seperate location and uses ssh to copy the files to the location.
-The trim script allows for a git clone into the hosted directory and simply deletes all unused files.
+The git repository should not be on any server.
 
-#### Deploy script
+#### Manual
 
-(Optional) Setup the deploy script to use different server root directory, default is `/var/www/`.
+The source can be deployed from the repository with the makefile.
+This directly mirrors the release install.
 
-To send the files site use `scripts/deploy user@ip` and set the server.
-If you do not have an ssh key it will prompt for a password multiple times.
+`make deploy SERVER=<SERVER>`
 
-#### Trim script
+### Example Install
+Example install (excluding MySQL setup).
 
-Move the files to the hosted directory.
+```
+cd /var/www
+wget (archive)
+tar xf (archive)
+rm (archive)
 
-Run `scripts/trim` on the server.
+cd /etc
+wget (libraryattendance.json)
+(editor) (libraryattendance.json)
+```
 
 ## Dependencies
 
