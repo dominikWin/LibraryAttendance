@@ -14,7 +14,7 @@ if($id === 0) {
 	exit();
 }
 
-include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/database.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/database.php");
 
 $status = db2_connect();
 

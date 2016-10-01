@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/config/dbconfig.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/config.php");
 
 $db1conn = null;
 $db2conn = null;

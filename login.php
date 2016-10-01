@@ -1,5 +1,5 @@
 <?php
-include("includes/config.php");
+include_once("includes/config.php");
 
 function img_res() {
 	global $CONF;
@@ -14,7 +14,7 @@ function img_res() {
 <html>
 	<head>
 		<title><?php echo $CONF['name']; ?></title>
-		<?php include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/head.php"); ?>
+		<?php include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/head.php"); ?>
 
 		<script type="text/javascript">
 			var img_height = <?php echo img_res()['height']; ?>;

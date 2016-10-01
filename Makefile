@@ -1,5 +1,5 @@
 HOSTED_NAME=libraryattendance
-FILES=admin config css fonts includes index.html interface js login.php
+FILES=admin css fonts includes index.html interface js login.php
 
 RM=rm -f
 BUILD_DIR=build

@@ -1,16 +1,16 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/verifyAdmin.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/verifyAdmin.php");
 
 if(isset($_GET['format'])) {
 	//Gen system
 	if($_GET['format'] == 'csv') {
-		include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/export-formats/exportCSV.php");
+		include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/export-formats/exportCSV.php");
 	}
 	elseif($_GET['format'] == 'xml') {
-		include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/export-formats/exportXML.php");
+		include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/export-formats/exportXML.php");
 	}
 	elseif($_GET['format'] == 'json') {
-		include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/export-formats/exportJSON.php");
+		include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/export-formats/exportJSON.php");
 	}
 	else {
 		die("Unknown format");
@@ -24,7 +24,7 @@ if(isset($_GET['format'])) {
 
 	<head>
 		<title>Export</title>
-		<?php include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/head.php"); ?>
+		<?php include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/head.php"); ?>
 		<link href="/libraryattendance/css/sb-admin/sb-admin.css" rel="stylesheet">
 		<script type="text/javascript" src="/libraryattendance/js/numberfield.js"></script>
 		<script>
@@ -35,7 +35,7 @@ if(isset($_GET['format'])) {
 	</head>
 	<body>
 		<div id="wrapper">
-			<?php $select = 2; include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/adminNav.php"); ?>
+			<?php $select = 2; include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/adminNav.php"); ?>
 			<div id="page-wrapper">
 				<h1>Export</h1>
 				<hr>

@@ -1,7 +1,7 @@
 <?php
 
 if(!isset($_COOKIE['sid'])) {
-	include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/fail.php");
+	include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/fail.php");
 }
 
 $hash = $_COOKIE['sid'];
@@ -16,7 +16,7 @@ if(!ctype_alnum($hash)) {
 	exit();
 }
 
-include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/database.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/database.php");
 
 $status = db2_connect();
 
@@ -28,7 +28,7 @@ if(is_null($status)) {
 $name = verify_session($_COOKIE['sid']);
 
 if($name === null) {
-	include($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/fail.php");
+	include_once($_SERVER['DOCUMENT_ROOT']."/libraryattendance/includes/fail.php");
 }
 
 ?>
